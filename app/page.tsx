@@ -28,7 +28,7 @@ import {
   Facebook,
   Sparkles,
   ShieldCheck, PlugZap, Headphones, Wrench, 
-  Truck, Package, CheckCircle2,
+  Truck, Package, CheckCircle2, RotateCcw, Repeat, AlertCircle,
   MapPin,
   ShoppingBagIcon,
   Receipt as ReceiptIcon,
@@ -76,10 +76,17 @@ export default function Home() {
   const [showReferModal, setShowReferModal] = useState(false)
   const [showStoreLocation, setShowStoreLocation] = useState(false)
   const receiptContainerRef = useRef<HTMLDivElement>(null)
-const [selectedTags, setSelectedTags] = useState<string[]>([])
-const [couponToast, setCouponToast] = useState<string | null>(null)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [couponToast, setCouponToast] = useState<string | null>(null)
   const [itemFeedback, setItemFeedback] = useState({})
-const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
+  const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
+  const [showReturnPanel, setShowReturnPanel] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState<number | null>(null)
+  const [returnType, setReturnType] = useState<"return" | "exchange" | null>(null)
+  const [returnReason, setReturnReason] = useState("")
+  const [returnComment, setReturnComment] = useState("")
+  const [refundMethod, setRefundMethod] = useState("original")
+  const [returnSubmitted, setReturnSubmitted] = useState(false)
   const [feedback, setFeedback] = useState({
     service: 0,
     quality: 0,
@@ -1555,6 +1562,263 @@ loop: true,
 
 
   </Carousel>
+
+</div>
+
+          {/* Returns & Exchange */}
+
+<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+
+{/* Success State */}
+
+{returnSubmitted ? (
+
+<div className="text-center py-4 bg-green-50 rounded-xl border border-green-100">
+
+<div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+<CheckCircle2 className="w-6 h-6 text-green-600" />
+</div>
+
+<div className="text-sm font-semibold text-gray-900">
+Return / Exchange Request Submitted
+</div>
+
+<div className="text-xs text-green-700 mt-1">
+Our support team will review your request shortly.
+</div>
+
+</div>
+
+) : (
+
+<>
+
+{/* Header */}
+
+<div className="flex items-center justify-between mb-3">
+
+<div className="flex items-center">
+
+<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+<RotateCcw className="h-4 w-4 text-white" />
+</div>
+
+<div>
+<div className="text-sm font-semibold text-gray-900">
+Returns & Exchange
+</div>
+
+<div className="text-xs text-gray-500">
+Request a return or exchange for your product
+</div>
+
+</div>
+
+</div>
+
+<button
+onClick={() => setShowReturnPanel(!showReturnPanel)}
+className="text-xs font-medium text-[#2CBC9C]"
+>
+{showReturnPanel ? "Close" : "Start"}
+</button>
+
+</div>
+
+
+{showReturnPanel && (
+
+<div className="space-y-4">
+
+{/* Product Selection */}
+
+<div>
+
+<div className="text-[11px] font-semibold text-gray-500 uppercase mb-2">
+Select Product
+</div>
+
+<div className="space-y-2">
+
+{currentReceipt.items.map((product) => (
+
+<button
+key={product.id}
+onClick={() => setSelectedProduct(product.id)}
+className={`w-full text-left p-3 rounded-xl border ${
+selectedProduct === product.id
+? "border-[#2CBC9C] bg-[#F1FBF8]"
+: "border-gray-200"
+}`}
+>
+
+<div className="text-sm font-medium text-gray-900">
+{product.name}
+</div>
+
+<div className="text-[11px] text-gray-500">
+{product.variant}
+</div>
+
+</button>
+
+))}
+
+</div>
+
+</div>
+
+
+{/* Action Type */}
+
+<div>
+
+<div className="text-[11px] font-semibold text-gray-500 uppercase mb-2">
+Action Type
+</div>
+
+<div className="flex gap-2">
+
+<button
+onClick={() => setReturnType("return")}
+className={`flex-1 border rounded-lg py-2 text-xs font-medium ${
+returnType === "return"
+? "border-[#2CBC9C] bg-[#F1FBF8] text-[#2CBC9C]"
+: "border-gray-200"
+}`}
+>
+Return
+</button>
+
+<button
+onClick={() => setReturnType("exchange")}
+className={`flex-1 border rounded-lg py-2 text-xs font-medium ${
+returnType === "exchange"
+? "border-[#2CBC9C] bg-[#F1FBF8] text-[#2CBC9C]"
+: "border-gray-200"
+}`}
+>
+Exchange
+</button>
+
+</div>
+
+</div>
+
+
+{/* Reason */}
+
+<div>
+
+<div className="text-[11px] font-semibold text-gray-500 uppercase mb-2">
+Reason
+</div>
+
+<div className="flex flex-wrap gap-2">
+
+{[
+"Defective Product",
+"Wrong Item",
+"Damaged Packaging",
+"Not Satisfied",
+"Other"
+].map((reason) => (
+
+<button
+key={reason}
+onClick={() => setReturnReason(reason)}
+className={`text-[11px] px-3 py-1 rounded-full border ${
+returnReason === reason
+? "bg-[#2CBC9C] text-white border-[#2CBC9C]"
+: "border-gray-200"
+}`}
+>
+{reason}
+</button>
+
+))}
+
+</div>
+
+</div>
+
+
+{/* Comment */}
+
+<div>
+
+<label className="text-[11px] font-semibold text-gray-500 uppercase">
+Additional Details
+</label>
+
+<textarea
+rows={3}
+placeholder="Tell us more about the issue"
+className="w-full mt-1 p-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2CBC9C]"
+value={returnComment}
+onChange={(e) => setReturnComment(e.target.value)}
+/>
+
+</div>
+
+
+{/* Refund Method */}
+
+{returnType === "return" && (
+
+<div>
+
+<div className="text-[11px] font-semibold text-gray-500 uppercase mb-2">
+Refund Method
+</div>
+
+<div className="flex gap-2">
+
+<button
+onClick={() => setRefundMethod("original")}
+className={`flex-1 border rounded-lg py-2 text-xs ${
+refundMethod === "original"
+? "border-[#2CBC9C] bg-[#F1FBF8]"
+: "border-gray-200"
+}`}
+>
+Original Payment
+</button>
+
+<button
+onClick={() => setRefundMethod("store")}
+className={`flex-1 border rounded-lg py-2 text-xs ${
+refundMethod === "store"
+? "border-[#2CBC9C] bg-[#F1FBF8]"
+: "border-gray-200"
+}`}
+>
+Store Credit
+</button>
+
+</div>
+
+</div>
+
+)}
+
+
+{/* Submit */}
+
+<button
+onClick={() => setReturnSubmitted(true)}
+className="w-full bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]"
+>
+Submit Request
+</button>
+
+</div>
+
+)}
+
+</>
+
+)}
 
 </div>
 
