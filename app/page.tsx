@@ -1263,79 +1263,75 @@ loop: true,
 
 >
 
-
 <CarouselContent>
 
   {/* Banner 1 */}
   <CarouselItem>
-    <div className="relative w-full aspect-[5/3]">
 
-      <a
-        href="https://www.croma.com/lp-flash-sale"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full h-full relative"
-      >
+    <a
+      href="https://www.croma.com/lp-flash-sale"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full"
+    >
 
-        <Image
-          src="/images/design-mode/Croma_Banner_1.png"
-          alt="Croma Flash Sale"
-          fill
-          className="object-cover"
-          priority
-        />
+      <Image
+        src="/images/design-mode/Croma_Banner_1.png"
+        alt="Croma Flash Sale"
+        width={1000}
+        height={600}
+        className="w-full h-auto object-contain"
+        priority
+      />
 
-      </a>
+    </a>
 
-    </div>
   </CarouselItem>
 
 
   {/* Banner 2 */}
   <CarouselItem>
-    <div className="relative w-full aspect-[5/3]">
 
-      <a
-        href="https://www.croma.com/lp-weekly-circuit"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full h-full relative"
-      >
+    <a
+      href="https://www.croma.com/lp-weekly-circuit"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full"
+    >
 
-        <Image
-          src="/images/design-mode/Croma_Banner_2.png"
-          alt="Croma Weekly Circuit"
-          fill
-          className="object-cover"
-        />
+      <Image
+        src="/images/design-mode/Croma_Banner_2.png"
+        alt="Croma Weekly Circuit"
+        width={1000}
+        height={600}
+        className="w-full h-auto object-contain"
+      />
 
-      </a>
+    </a>
 
-    </div>
   </CarouselItem>
 
 
   {/* Banner 3 */}
   <CarouselItem>
-    <div className="relative w-full aspect-[5/3]">
 
-      <a
-        href="https://www.croma.com/campaign/best-deals-on-acs/c/5842?q=%3Arelevance%3Alower_categories%3A867"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full h-full relative"
-      >
+    <a
+      href="https://www.croma.com/campaign/best-deals-on-acs/c/5842?q=%3Arelevance%3Alower_categories%3A867"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full"
+    >
 
-        <Image
-          src="/images/design-mode/Croma_Banner_3.png"
-          alt="Best Deals on ACs"
-          fill
-          className="object-cover"
-        />
+      <Image
+        src="/images/design-mode/Croma_Banner_3.png"
+        alt="Croma AC Deals"
+        width={1000}
+        height={600}
+        className="w-full h-auto object-contain"
+      />
 
-      </a>
+    </a>
 
-    </div>
   </CarouselItem>
 
 </CarouselContent>
@@ -1365,6 +1361,7 @@ loop: true,
 
 </div>
 
+          
           {/* Join Domino's Rewards Section */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
