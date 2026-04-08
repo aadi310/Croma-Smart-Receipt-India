@@ -1413,7 +1413,7 @@ loop: true,
       </div>
 
       <div className="text-xs text-gray-500">
-        Link your profile for warranty, installation updates and rewards.
+        Link your profile for warranty, updates and rewards.
       </div>
     </div>
 
