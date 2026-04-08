@@ -87,6 +87,7 @@ export default function Home() {
   const [returnComment, setReturnComment] = useState("")
   const [refundMethod, setRefundMethod] = useState("original")
   const [returnSubmitted, setReturnSubmitted] = useState(false)
+  const [returnRequestId, setReturnRequestId] = useState<string | null>(null)
   const [feedback, setFeedback] = useState({
     service: 0,
     quality: 0,
@@ -149,6 +150,10 @@ export default function Home() {
   })
 }
 
+  const generateReturnId = () => {
+  return "CR" + Math.floor(100000 + Math.random() * 900000)
+}
+
   const customerName = "Madhav"
 
   // Carousel refs and APIs
@@ -205,6 +210,16 @@ export default function Home() {
       setCurrentSlide(promoApi.selectedScrollSnap())
     })
   }, [promoApi])
+
+  useEffect(() => {
+  setShowReturnPanel(false)
+  setSelectedProduct(null)
+  setReturnType(null)
+  setReturnReason("")
+  setReturnComment("")
+  setRefundMethod("original")
+  setReturnSubmitted(false)
+}, [currentReceiptId])
 
 const receipts = {
 
@@ -1573,8 +1588,6 @@ loop: true,
 
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-{/* Success State */}
-
 {returnSubmitted ? (
 
 <div className="text-center py-4 bg-green-50 rounded-xl border border-green-100">
@@ -1584,11 +1597,15 @@ loop: true,
 </div>
 
 <div className="text-sm font-semibold text-gray-900">
-Return / Exchange Request Submitted
+Request Submitted
+</div>
+
+<div className="text-xs text-gray-600 mt-1">
+Request ID: <span className="font-semibold">{returnRequestId}</span>
 </div>
 
 <div className="text-xs text-green-700 mt-1">
-Our support team will review your request shortly.
+Our support team will contact you shortly.
 </div>
 
 </div>
@@ -1615,7 +1632,6 @@ Returns & Exchange
 <div className="text-xs text-gray-500">
 Request a return or exchange for your product
 </div>
-
 </div>
 
 </div>
@@ -1648,7 +1664,11 @@ Select Product
 
 <button
 key={product.id}
-onClick={() => setSelectedProduct(product.id)}
+onClick={() => {
+setSelectedProduct(product.id)
+setReturnType(null)
+setReturnReason("")
+}}
 className={`w-full text-left p-3 rounded-xl border ${
 selectedProduct === product.id
 ? "border-[#2CBC9C] bg-[#F1FBF8]"
@@ -1675,6 +1695,8 @@ selectedProduct === product.id
 
 {/* Action Type */}
 
+{selectedProduct !== null && (
+
 <div>
 
 <div className="text-[11px] font-semibold text-gray-500 uppercase mb-2">
@@ -1685,7 +1707,7 @@ Action Type
 
 <button
 onClick={() => setReturnType("return")}
-className={`flex-1 border rounded-lg py-2 text-xs font-medium ${
+className={`flex-1 border rounded-lg py-2 text-xs ${
 returnType === "return"
 ? "border-[#2CBC9C] bg-[#F1FBF8] text-[#2CBC9C]"
 : "border-gray-200"
@@ -1696,7 +1718,7 @@ Return
 
 <button
 onClick={() => setReturnType("exchange")}
-className={`flex-1 border rounded-lg py-2 text-xs font-medium ${
+className={`flex-1 border rounded-lg py-2 text-xs ${
 returnType === "exchange"
 ? "border-[#2CBC9C] bg-[#F1FBF8] text-[#2CBC9C]"
 : "border-gray-200"
@@ -1709,8 +1731,12 @@ Exchange
 
 </div>
 
+)}
+
 
 {/* Reason */}
+
+{returnType && (
 
 <div>
 
@@ -1746,8 +1772,12 @@ returnReason === reason
 
 </div>
 
+)}
+
 
 {/* Comment */}
+
+{returnReason && (
 
 <div>
 
@@ -1765,10 +1795,12 @@ onChange={(e) => setReturnComment(e.target.value)}
 
 </div>
 
+)}
 
-{/* Refund Method */}
 
-{returnType === "return" && (
+{/* Refund */}
+
+{returnType === "return" && returnReason && (
 
 <div>
 
@@ -1809,12 +1841,20 @@ Store Credit
 
 {/* Submit */}
 
+{returnReason && (
+
 <button
-onClick={() => setReturnSubmitted(true)}
+onClick={() => {
+const id = generateReturnId()
+setReturnRequestId(id)
+setReturnSubmitted(true)
+}}
 className="w-full bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]"
 >
 Submit Request
 </button>
+
+)}
 
 </div>
 
