@@ -1163,92 +1163,179 @@ Powered by RDEP
 
 </div>
 
-      {/* Loyalty / NeuCoins Section */}
+{/* Feedback Section */}
 
-<div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
+<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-  <div className="p-4">
+{feedbackSubmitted ? (
 
+<div className="text-center py-6 bg-[#F1FBF8] rounded-xl border border-[#D6F2EC]">
 
-{/* Header */}
-<div className="flex items-center mb-4">
+  <div className="w-12 h-12 bg-[#D6F2EC] rounded-full flex items-center justify-center mx-auto mb-3">
 
-  <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
-    <Sparkles className="h-4 w-4 text-white" />
+    <svg
+      className="w-6 h-6 text-[#2CBC9C]"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
+    </svg>
+
   </div>
 
-  <div>
-    <div className="text-sm font-semibold text-gray-900">
-      NeuCoins Rewards
-    </div>
-
-    <div className="text-xs text-gray-500">
-      Earn rewards across the Tata Neu ecosystem
-    </div>
+  <div className="text-sm font-semibold text-gray-900 mb-1">
+    Thanks for your feedback!
   </div>
 
-</div>
-
-
-{/* Overview Stats */}
-<div className="grid grid-cols-3 gap-3 mb-4">
-
-  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
-    <div className="text-lg font-semibold text-[#2CBC9C]">+669</div>
-    <div className="text-xs text-gray-600">Coins Earned</div>
-  </div>
-
-  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
-    <div className="text-lg font-semibold text-[#2CBC9C]">4,280</div>
-    <div className="text-xs text-gray-600">Total Coins</div>
-  </div>
-
-  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
-    <div className="text-lg font-semibold text-[#2CBC9C]">Gold</div>
-    <div className="text-xs text-gray-600">Member Tier</div>
+  <div className="text-xs text-gray-600">
+    Your feedback helps us improve the Croma shopping experience.
   </div>
 
 </div>
 
+) : (
 
-{/* Tier Progress */}
-<div className="bg-[#F1FBF8] rounded-xl p-4 border border-[#D6F2EC]">
+<div className="space-y-4">
 
-  <div className="flex justify-between text-xs text-gray-600 mb-2">
-    <span>Progress to Platinum</span>
-    <span>4280 / 6000</span>
+  {/* Header */}
+  <div className="flex items-center">
+
+    <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+      <Star className="h-4 w-4 text-white" />
+    </div>
+
+    <h3 className="text-base font-semibold text-gray-900">
+      Rate Your Shopping Experience
+    </h3>
+
   </div>
 
-  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
 
-    <div
-      className="h-full bg-[#2CBC9C] rounded-full"
-      style={{ width: "71%" }}
+  {/* Star Rating */}
+  <div className="flex justify-center gap-3 py-2">
+
+    {[1,2,3,4,5].map((star) => (
+
+      <button
+        key={star}
+        onClick={() => {
+          setRating(star)
+          setSelectedTags([])
+        }}
+        className="transition-transform active:scale-90"
+      >
+
+        <Star
+          className={`h-8 w-8 ${
+            star <= rating
+              ? "fill-[#2CBC9C] text-[#2CBC9C]"
+              : "text-gray-300"
+          }`}
+        />
+
+      </button>
+
+    ))}
+
+  </div>
+
+
+  {/* Dynamic Feedback Tags */}
+  {rating > 0 && (
+
+    <div className="space-y-2">
+
+      <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+        Tell us more
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+
+        {(rating >= 4
+          ? [
+              "Great product quality",
+              "Helpful staff",
+              "Smooth checkout",
+              "Fast billing",
+              "Good value",
+              "Easy installation",
+            ]
+          : [
+              "Long checkout time",
+              "Product not available",
+              "Staff assistance needed",
+              "Price higher than expected",
+              "Installation delay",
+              "Packaging issue",
+            ]
+        ).map((item) => (
+
+          <button
+            key={item}
+            onClick={() =>
+              setSelectedTags((prev) =>
+                prev.includes(item)
+                  ? prev.filter((tag) => tag !== item)
+                  : [...prev, item]
+              )
+            }
+            className={`text-[11px] px-3 py-1.5 rounded-full border transition ${
+              selectedTags.includes(item)
+                ? "bg-[#2CBC9C] text-white border-[#2CBC9C]"
+                : "border-gray-200 bg-gray-50"
+            }`}
+          >
+            {item}
+          </button>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  )}
+
+
+  {/* Optional Comment */}
+  <div className="space-y-1">
+
+    <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
+      Additional Feedback (Optional)
+    </label>
+
+    <textarea
+      rows={3}
+      placeholder="Tell us about your Croma shopping experience"
+      className="w-full p-3 text-xs border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#2CBC9C] focus:border-[#2CBC9C] outline-none resize-none"
+      value={feedbackText}
+      onChange={(e) => setFeedbackText(e.target.value)}
     />
 
   </div>
 
-  <div className="text-xs text-gray-600 mt-2">
-    Only <span className="font-semibold text-[#2CBC9C]">1,720 coins</span> away from Platinum benefits.
-  </div>
+
+  {/* Submit Button */}
+  <button
+    className="w-full bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]"
+    onClick={handleFeedbackSubmit}
+    disabled={!rating}
+  >
+    Submit Feedback
+  </button>
+
+
+  <p className="text-[10px] text-center text-gray-400">
+    Your feedback helps us improve future shopping experiences.
+  </p>
 
 </div>
 
 
-{/* Member Benefit */}
-<div className="mt-4 bg-gray-50 rounded-xl border border-gray-200 p-3 text-center">
-
-  <div className="text-xs text-gray-600">
-    Gold members enjoy priority service, exclusive offers and faster NeuCoins rewards.
-  </div>
+)}
 
 </div>
-
-
-  </div>
-
-</div>
-
           
 {/* Promo Banner Carousel */}
 
@@ -1503,183 +1590,92 @@ loop: true,
 
 </div>
 
-          
-      {/* Feedback Section */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+          {/* Loyalty / NeuCoins Section */}
 
-  {feedbackSubmitted ? (
+<div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
 
-    <div className="text-center py-6 bg-green-50 rounded-xl border border-green-100">
+  <div className="p-4">
 
-      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
 
-      <div className="text-sm font-semibold text-gray-900 mb-1">
-        Thanks for your feedback!
-      </div>
+{/* Header */}
+<div className="flex items-center mb-4">
 
-      <div className="text-xs text-gray-500">
-        Your input helps us improve every Domino's experience.
-      </div>
+  <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+    <Sparkles className="h-4 w-4 text-white" />
+  </div>
 
+  <div>
+    <div className="text-sm font-semibold text-gray-900">
+      NeuCoins Rewards
     </div>
 
-  ) : (
-
-    <div className="space-y-4">
-
-      {/* Header */}
-      <div className="flex items-center justify-between">
-
-        <div className="flex items-center">
-
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 text-white"
-              fill="currentColor"
-            >
-              <path d="M11.5 2C7 2 3.5 5.3 3.5 9.5c0 2.4 1.2 4.4 3.1 5.7L6 22l5.1-2.6c.5.1 1 .1 1.5.1 4.5 0 8-3.3 8-7.5S16 2 11.5 2z"/>
-            </svg>
-          </div>
-
-          <h3 className="text-base font-semibold text-gray-900">
-            Rate Your Pizza Experience
-          </h3>
-
-        </div>
-
-      </div>
-
-
-      {/* Pizza Rating */}
-      <div className="flex justify-center gap-3 py-1">
-
-        {[1,2,3,4,5].map((pizza) => (
-
-          <button
-            key={pizza}
-            onClick={() => {
-              setRating(pizza)
-              setSelectedTags([])
-            }}
-            className="transition-transform active:scale-90"
-          >
-
-            <span
-              className={`text-3xl ${
-                pizza <= rating ? "opacity-100" : "opacity-30"
-              }`}
-            >
-              🍕
-            </span>
-
-          </button>
-
-        ))}
-
-      </div>
-
-
-      {/* Dynamic Feedback Chips */}
-      {rating > 0 && (
-
-        <div className="space-y-2">
-
-          <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-            Tell us more about your order
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-
-            {(rating >= 4
-              ? [
-                  "Great taste",
-                  "Hot & fresh pizza",
-                  "Fast delivery",
-                  "Good value",
-                  "Well packaged",
-                  "Accurate order",
-                ]
-              : [
-                  "Pizza was cold",
-                  "Long delivery time",
-                  "Wrong order",
-                  "Poor taste",
-                  "Packaging issue",
-                  "Not good value",
-                ]
-            ).map((item) => (
-
-              <button
-                key={item}
-                onClick={() =>
-                  setSelectedTags((prev) =>
-                    prev.includes(item)
-                      ? prev.filter((tag) => tag !== item)
-                      : [...prev, item]
-                  )
-                }
-                className={`text-[11px] px-3 py-1.5 rounded-full border transition ${
-                  selectedTags.includes(item)
-                    ? "bg-[#E31837] text-white border-[#E31837]"
-                    : "border-gray-200 bg-gray-50"
-                }`}
-              >
-                {item}
-              </button>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      )}
-
-
-      {/* Optional Comment */}
-      <div className="space-y-1">
-
-        <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-          Additional Feedback (Optional)
-        </label>
-
-        <textarea
-          rows={3}
-          placeholder="Tell us about your Domino's order"
-          className="w-full p-3 text-xs border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#E31837] focus:border-[#E31837] outline-none resize-none"
-          value={feedbackText}
-          onChange={(e) => setFeedbackText(e.target.value)}
-        />
-
-      </div>
-
-
-      {/* Submit Button */}
-      <button
-        className="w-full bg-[#006491] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]"
-        onClick={handleFeedbackSubmit}
-        disabled={!rating}
-      >
-        Submit Feedback
-      </button>
-
-
-      <p className="text-[10px] text-center text-gray-400">
-        Your feedback helps Domino's improve every order.
-      </p>
-
+    <div className="text-xs text-gray-500">
+      Earn rewards across the Tata Neu ecosystem
     </div>
-
-  )}
+  </div>
 
 </div>
 
+
+{/* Overview Stats */}
+<div className="grid grid-cols-3 gap-3 mb-4">
+
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">+669</div>
+    <div className="text-xs text-gray-600">Coins Earned</div>
+  </div>
+
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">4,280</div>
+    <div className="text-xs text-gray-600">Total Coins</div>
+  </div>
+
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">Gold</div>
+    <div className="text-xs text-gray-600">Member Tier</div>
+  </div>
+
+</div>
+
+
+{/* Tier Progress */}
+<div className="bg-[#F1FBF8] rounded-xl p-4 border border-[#D6F2EC]">
+
+  <div className="flex justify-between text-xs text-gray-600 mb-2">
+    <span>Progress to Platinum</span>
+    <span>4280 / 6000</span>
+  </div>
+
+  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+
+    <div
+      className="h-full bg-[#2CBC9C] rounded-full"
+      style={{ width: "71%" }}
+    />
+
+  </div>
+
+  <div className="text-xs text-gray-600 mt-2">
+    Only <span className="font-semibold text-[#2CBC9C]">1,720 coins</span> away from Platinum benefits.
+  </div>
+
+</div>
+
+
+{/* Member Benefit */}
+<div className="mt-4 bg-gray-50 rounded-xl border border-gray-200 p-3 text-center">
+
+  <div className="text-xs text-gray-600">
+    Gold members enjoy priority service, exclusive offers and faster NeuCoins rewards.
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>
+          
 {/* Just For You - Coupon Section */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
