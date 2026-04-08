@@ -906,7 +906,7 @@ Powered by RDEP
 
   <div className="flex items-center justify-between mb-4">
 
-```
+
 <h3 className="text-lg font-semibold flex items-center text-[#2CBC9C]">
   <ShoppingBagIcon className="mr-2 h-5 w-5" />
   Purchased Products
@@ -915,7 +915,6 @@ Powered by RDEP
 <span className="text-xs font-medium border border-[#2CBC9C] text-[#2CBC9C] px-2 py-1 rounded-full">
   {currentReceipt.items.length} items
 </span>
-```
 
   </div>
 
@@ -923,34 +922,33 @@ Powered by RDEP
 
   <div className="space-y-3">
 
-```
 {currentReceipt.items.map((product) => (
 
   <div
     key={product.id}
-    className="bg-[#F1FBF8] rounded-xl p-3 border border-[#D6F2EC]"
+    className="bg-[#F1FBF8] rounded-xl p-4 border border-[#D6F2EC]"
   >
 
-    {/* Product Header */}
+    {/* Product Row */}
     <div
-      className="flex items-center justify-between cursor-pointer"
+      className="flex items-start justify-between cursor-pointer"
       onClick={() => toggleProductExpansion(product.id)}
     >
 
-      <div className="flex items-center flex-1">
+      <div className="flex items-start flex-1">
 
         <ChevronRight
-          className={`h-4 w-4 mr-2 text-[#2CBC9C] transition-transform duration-200 ${
+          className={`h-4 w-4 mr-2 mt-[2px] text-[#2CBC9C] transition-transform duration-200 ${
             expandedProducts.includes(product.id) ? "rotate-90" : ""
           }`}
         />
 
         <div>
-          <div className="font-medium text-sm text-gray-900">
+          <div className="font-medium text-sm text-gray-900 leading-snug">
             {product.name}
           </div>
 
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-gray-500 mt-0.5">
             {product.category}
           </div>
         </div>
@@ -958,7 +956,7 @@ Powered by RDEP
       </div>
 
 
-      <div className="text-right">
+      <div className="text-right ml-2">
 
         <div className="text-xs text-gray-500">
           Qty {product.quantity}
@@ -976,19 +974,31 @@ Powered by RDEP
     {/* Expanded Product Details */}
     {expandedProducts.includes(product.id) && (
 
-      <div className="mt-3 pt-3 border-t border-[#D6F2EC] text-xs text-gray-600 grid grid-cols-2 gap-y-1">
+      <div className="mt-3 pt-3 border-t border-[#D6F2EC] space-y-2 text-xs text-gray-700">
 
-        <div>Variant: {product.variant}</div>
-        <div>Product Code: {product.itemCode}</div>
+        <div>
+          <div className="text-gray-500">Variant</div>
+          <div className="font-medium">{product.variant}</div>
+        </div>
 
-        <div>Serial: {product.serialNumber}</div>
-        <div>Warranty: {product.warranty}</div>
+        <div>
+          <div className="text-gray-500">Product Code</div>
+          <div className="font-medium">{product.itemCode}</div>
+        </div>
 
-        <div>Base Price: ₹{product.baseAmount?.toFixed(2)}</div>
-        <div>GST: ₹{product.tax?.toFixed(2)}</div>
+        <div>
+          <div className="text-gray-500">Serial Number</div>
+          <div className="font-medium">{product.serialNumber}</div>
+        </div>
+
+        <div>
+          <div className="text-gray-500">Warranty</div>
+          <div className="font-medium">{product.warranty}</div>
+        </div>
+
 
         {product.installationAvailable && (
-          <div className="col-span-2 mt-2 text-[#2CBC9C] font-semibold">
+          <div className="pt-1 text-[#2CBC9C] font-semibold">
             Installation: {product.installationStatus}
             {product.installationScheduledDate && (
               <> • {product.installationScheduledDate}</>
@@ -1016,12 +1026,11 @@ Powered by RDEP
     </div>
 
 
-    {/* Product Feedback Panel */}
+    {/* Feedback Panel */}
     {expandedItemFeedback.includes(product.id) && (
 
       <div className="mt-3 bg-white border border-gray-200 rounded-xl p-3">
 
-        {/* Rating */}
         <div className="flex justify-center gap-2 mb-3">
 
           {[1,2,3,4,5].map((star) => (
@@ -1046,10 +1055,9 @@ Powered by RDEP
         </div>
 
 
-        {/* Feedback Tags */}
         <div className="flex flex-wrap gap-2 justify-center">
 
-          {["Build Quality","Performance","Design","Value for Money"].map((tag) => {
+          {["Build Quality","Performance","Design","Value"].map((tag) => {
 
             const active =
               itemFeedback[product.id]?.tags?.includes(tag)
@@ -1081,7 +1089,7 @@ Powered by RDEP
   </div>
 
 ))}
-```
+
 
   </div>
 
@@ -1089,7 +1097,7 @@ Powered by RDEP
 
   <div className="mt-5 pt-4 border-t border-gray-200 space-y-2 text-sm">
 
-```
+
 <div className="flex justify-between">
   <span className="text-gray-600">Subtotal</span>
   <span>₹{currentReceipt.subtotal.toFixed(2)}</span>
@@ -1106,15 +1114,14 @@ Powered by RDEP
     ₹{currentReceipt.total.toFixed(2)}
   </span>
 </div>
-```
+
 
   </div>
 
-{/* Payment Method */}
+{/* Payment */}
 
   <div className="mt-5">
 
-```
 <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-center justify-between">
 
   <div className="flex items-center">
@@ -1150,7 +1157,7 @@ Powered by RDEP
   </div>
 
 </div>
-```
+
 
   </div>
 
