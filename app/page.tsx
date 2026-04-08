@@ -1362,123 +1362,147 @@ loop: true,
 </div>
 
           
-          {/* Join Domino's Rewards Section */}
+          {/* Profile / Rewards Activation Section */}
+
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-  {profileUpdateSuccess ? (
+{profileUpdateSuccess ? (
 
-    <div className="text-center py-4 bg-green-50 rounded-xl border border-green-100">
 
-      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-        </svg>
+<div className="text-center py-4 bg-[#F1FBF8] rounded-xl border border-[#D6F2EC]">
+
+  <div className="w-12 h-12 bg-[#D6F2EC] rounded-full flex items-center justify-center mx-auto mb-3">
+
+    <svg
+      className="w-6 h-6 text-[#2CBC9C]"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+    </svg>
+
+  </div>
+
+  <div className="text-sm font-semibold text-gray-900 mb-1">
+    Profile Saved Successfully
+  </div>
+
+  <div className="text-xs text-gray-600">
+    Your details are now linked to this purchase for warranty, installation updates and rewards tracking.
+  </div>
+
+</div>
+
+
+) : (
+
+
+<>
+
+  {/* Header */}
+  <div className="flex items-center mb-3">
+
+    <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+      <User2 className="h-4 w-4 text-white" />
+    </div>
+
+    <div>
+      <div className="text-sm font-semibold text-gray-900">
+        Save Your Details
       </div>
 
-      <div className="text-sm font-semibold text-gray-900 mb-1">
-        Welcome to Domino's Rewards!
+      <div className="text-xs text-gray-500">
+        Link your profile for warranty, installation updates and rewards.
       </div>
+    </div>
 
-      <div className="text-xs text-green-700 font-medium">
-        Your profile has been saved and rewards are now active.
-      </div>
+  </div>
+
+
+  {/* Form */}
+  <div className="space-y-3">
+
+    <div className="space-y-1">
+
+      <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
+        Full Name
+      </label>
+
+      <input
+        type="text"
+        placeholder="Your Name"
+        value={profile.name}
+        onChange={(e) =>
+          setProfile((prev) => ({ ...prev, name: e.target.value }))
+        }
+        className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2CBC9C]"
+      />
 
     </div>
 
-  ) : (
 
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3">
+    <div className="space-y-1">
 
-        <div className="flex items-center">
+      <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
+        Email Address
+      </label>
 
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-            <User2 className="h-4 w-4 text-white" />
-          </div>
+      <input
+        type="email"
+        placeholder="name@example.com"
+        value={profile.email}
+        onChange={(e) =>
+          setProfile((prev) => ({ ...prev, email: e.target.value }))
+        }
+        className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2CBC9C]"
+      />
 
-          <div>
-            <div className="text-sm font-semibold text-gray-900">
-              Join Domino's Rewards
-            </div>
-            <div className="text-xs text-gray-500">
-              Save your profile to unlock offers and faster checkout
-            </div>
-          </div>
-
-        </div>
-
-      </div>
+    </div>
 
 
-      {/* Form */}
-      <div className="space-y-3">
+    <div className="space-y-1">
 
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Full Name
-          </label>
+      <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
+        Mobile Number
+      </label>
 
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={profile.name}
-            onChange={(e) => setProfile((prev) => ({ ...prev, name: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
+      <input
+        type="tel"
+        placeholder="+91 ..."
+        value={profile.mobile}
+        onChange={(e) =>
+          setProfile((prev) => ({ ...prev, mobile: e.target.value }))
+        }
+        className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2CBC9C]"
+      />
 
+    </div>
 
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Email Address
-          </label>
-
-          <input
-            type="email"
-            placeholder="name@example.com"
-            value={profile.email}
-            onChange={(e) => setProfile((prev) => ({ ...prev, email: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
+  </div>
 
 
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Mobile Number
-          </label>
-
-          <input
-            type="tel"
-            placeholder="+91 ..."
-            value={profile.mobile}
-            onChange={(e) => setProfile((prev) => ({ ...prev, mobile: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
-
-      </div>
+  {/* CTA */}
+  <button
+    className="w-full mt-4 bg-[#2CBC9C] text-white h-11 text-xs font-semibold rounded-xl shadow-md transition active:scale-[0.98]"
+    onClick={handleProfileUpdate}
+  >
+    Save Details
+  </button>
 
 
-      {/* CTA */}
-      <button
-        className="w-full mt-4 bg-[#006491] text-white h-11 text-xs font-semibold rounded-xl shadow-md transition active:scale-[0.98]"
-        onClick={handleProfileUpdate}
-      >
-        Save Profile & Activate Rewards
-      </button>
+  {/* Helper Text */}
+  <div className="text-[10px] text-gray-400 text-center mt-2">
+    Your information helps us provide warranty support, installation updates and exclusive offers.
+  </div>
+
+</>
 
 
-      {/* Helper text */}
-      <div className="text-[10px] text-gray-400 text-center mt-2">
-        By joining, you agree to receive Domino's offers and order updates.
-      </div>
-
-    </>
-  )}
+)}
 
 </div>
+
           
       {/* Feedback Section */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
