@@ -27,6 +27,7 @@ import {
   Share2,
   Facebook,
   Sparkles,
+  ShieldCheck, PlugZap, Headphones,
   MapPin,
   ShoppingBagIcon,
   Receipt as ReceiptIcon,
@@ -1676,128 +1677,130 @@ loop: true,
 
 </div>
           
-{/* Just For You - Coupon Section */}
+{/* Exclusive Offers Section */}
+
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-  {/* Header */}
-  <div className="flex items-center justify-between mb-4">
+{/* Header */}
 
-    <div className="flex items-center">
+  <div className="flex items-center mb-4">
 
-      <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-        <Sparkles className="h-4 w-4 text-white" />
-      </div>
 
-      <h3 className="text-base font-semibold text-gray-900">
-        Just for You
-      </h3>
+<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+  <Sparkles className="h-4 w-4 text-white" />
+</div>
 
-    </div>
+<h3 className="text-base font-semibold text-gray-900">
+  Exclusive Offers For You
+</h3>
+
 
   </div>
 
-
-  {/* Inline Toast */}
-  {couponToast && (
-    <div className="mb-3 text-center text-xs text-green-700 bg-green-50 border border-green-100 rounded-lg py-2">
-      ✓ Coupon copied
-    </div>
-  )}
-
+{/* Inline Toast */}
+{couponToast && ( <div className="mb-3 text-center text-xs text-green-700 bg-green-50 border border-green-100 rounded-lg py-2">
+✓ Offer saved </div>
+)}
 
   <div className="space-y-3">
 
-    {/* Coupon 1 */}
-    <button
-      onClick={() => copyCoupon("GET30")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
-    >
 
-      <div className="flex items-center justify-between">
+{/* Offer 1 */}
+<button
+  onClick={() => copyCoupon("AC_WARRANTY")}
+  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+>
 
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            ₹30 Off Your Next Pizza
-          </h4>
+  <div className="flex items-center justify-between">
 
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">GET30</span>
-          </p>
-        </div>
+    <div>
+      <h4 className="text-sm font-semibold text-gray-900">
+        Extend Your AC Warranty
+      </h4>
 
-        <div className="text-xl">🍕</div>
+      <p className="text-[11px] text-gray-500">
+        Get up to <span className="font-semibold text-[#2CBC9C]">20% off</span> on extended protection plans
+      </p>
+    </div>
 
-      </div>
-
-    </button>
-
-
-    {/* Coupon 2 */}
-    <button
-      onClick={() => copyCoupon("CHEESE20")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
-    >
-
-      <div className="flex items-center justify-between">
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            20% Off Cheese Burst Pizza
-          </h4>
-
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">CHEESE20</span>
-          </p>
-        </div>
-
-        <div className="text-xl">🧀</div>
-
-      </div>
-
-    </button>
-
-
-    {/* Coupon 3 */}
-    <button
-      onClick={() => copyCoupon("FREEGB")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
-    >
-
-      <div className="flex items-center justify-between">
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            Free Garlic Bread
-          </h4>
-
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">FREEGB</span>
-          </p>
-        </div>
-
-        <div className="text-xl">🥖</div>
-
-      </div>
-
-    </button>
+    <ShieldCheck className="h-5 w-5 text-[#2CBC9C]" />
 
   </div>
 
+</button>
 
-  {/* CTA */}
-  <a
-    href="https://www.dominos.co.in/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <button className="w-full mt-4 bg-[#006491] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]">
-      Order Domino's
-    </button>
+
+{/* Offer 2 */}
+<button
+  onClick={() => copyCoupon("AC_STABILIZER")}
+  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+>
+
+  <div className="flex items-center justify-between">
+
+    <div>
+      <h4 className="text-sm font-semibold text-gray-900">
+        Special Price on AC Stabilizers
+      </h4>
+
+      <p className="text-[11px] text-gray-500">
+        Protect your AC with stabilizers starting at ₹1,499
+      </p>
+    </div>
+
+    <PlugZap className="h-5 w-5 text-[#2CBC9C]" />
+
+  </div>
+
+</button>
+
+
+{/* Offer 3 */}
+<button
+  onClick={() => copyCoupon("AIRPODS_CASE")}
+  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+>
+
+  <div className="flex items-center justify-between">
+
+    <div>
+      <h4 className="text-sm font-semibold text-gray-900">
+        Protect Your AirPods
+      </h4>
+
+      <p className="text-[11px] text-gray-500">
+        Premium protective cases starting from ₹799
+      </p>
+    </div>
+
+    <Headphones className="h-5 w-5 text-[#2CBC9C]" />
+
+  </div>
+
+</button>
+
+
+  </div>
+
+{/* CTA */}
+<a
+href="https://www.croma.com/"
+target="_blank"
+rel="noopener noreferrer"
+
+>
+
+<button className="w-full mt-4 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]">
+
+
+  Explore More Offers
+</button>
+
+
   </a>
 
-
   <p className="mt-2 text-[9px] text-center text-gray-400">
-    Tap a coupon to copy the code. Offers may vary by location.
+    Offers based on your recent purchase. Availability may vary by location.
   </p>
 
 </div>
