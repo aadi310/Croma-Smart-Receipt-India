@@ -142,7 +142,7 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
   })
 }
 
-  const customerName = "Rahul"
+  const customerName = "Madhav"
 
   // Carousel refs and APIs
   const [promoApi, setPromoApi] = useState<CarouselApi>()
@@ -454,7 +454,7 @@ const receipts = {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Domino's Digital Receipt</title>
+<title>Croma Digital Receipt</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -484,12 +484,12 @@ justify-content:space-between;
 align-items:flex-start;
 margin-bottom:28px;
 padding-bottom:16px;
-border-bottom:3px solid #006491;
+border-bottom:3px solid #2CBC9C;
 }
 
 .company-info h1{
 font-size:30px;
-color:#006491;
+color:#2CBC9C;
 font-weight:700;
 margin-bottom:4px;
 }
@@ -511,22 +511,22 @@ margin-bottom:4px;
 
 .bill-id{
 font-weight:600;
-color:#E31837;
+color:#2CBC9C;
 }
 
-/* Guest section */
+/* Customer */
 
 .customer-section{
-background:#F4F8FB;
+background:#F1FBF8;
 padding:14px;
-border-left:4px solid #006491;
+border-left:4px solid #2CBC9C;
 border-radius:0 8px 8px 0;
 margin-bottom:22px;
 }
 
 .customer-section h3{
 font-size:15px;
-color:#006491;
+color:#2CBC9C;
 font-weight:600;
 margin-bottom:2px;
 }
@@ -545,7 +545,7 @@ margin-bottom:24px;
 }
 
 .items-table th{
-background:#006491;
+background:#2CBC9C;
 color:white;
 padding:10px 8px;
 text-align:left;
@@ -573,7 +573,7 @@ color:#666;
 
 .item-specs{
 font-size:10px;
-color:#E31837;
+color:#2CBC9C;
 margin-top:4px;
 font-weight:600;
 }
@@ -603,8 +603,8 @@ font-size:13px;
 .net-total{
 font-size:18px;
 font-weight:700;
-color:#006491;
-border-top:2px solid #006491;
+color:#2CBC9C;
+border-top:2px solid #2CBC9C;
 padding-top:6px;
 margin-top:6px;
 }
@@ -621,7 +621,7 @@ color:#555;
 }
 
 .footer strong{
-color:#E31837;
+color:#2CBC9C;
 }
 
 .powered{
@@ -647,17 +647,17 @@ padding:0;
 <div class="receipt-header">
 
 <div class="company-info">
-<h1>Domino's</h1>
+<h1>Croma</h1>
 <p>
-<strong>Domino's Pizza India</strong><br>
+<strong>Croma Retail Store</strong><br>
 Brigade Road<br>
 Bengaluru, Karnataka 560001<br>
-Phone: 1800-208-1234
+India
 </p>
 </div>
 
 <div class="bill-info">
-<div><strong>Order ID:</strong> <span class="bill-id">DMBLR7891XQ12</span></div>
+<div><strong>Receipt ID:</strong> <span class="bill-id">CRBLR7891XQ12</span></div>
 <div><strong>Date:</strong> 05-03-2026 19:22</div>
 <div><strong>Store Associate:</strong> Rahul Kumar</div>
 </div>
@@ -666,16 +666,16 @@ Phone: 1800-208-1234
 
 <div class="customer-section">
 <h3>Customer: ${customerName}</h3>
-<p>Thank you for ordering with Domino's!</p>
+<p>Thank you for shopping at Croma!</p>
 </div>
 
 <table class="items-table">
 
 <thead>
 <tr>
-<th style="width:50%">Menu Item</th>
+<th style="width:50%">Product</th>
 <th style="width:10%">Qty</th>
-<th style="width:15%">Size</th>
+<th style="width:15%">Variant</th>
 <th style="width:12%">Price</th>
 <th style="width:13%">Total</th>
 </tr>
@@ -685,38 +685,34 @@ Phone: 1800-208-1234
 
 <tr>
 <td>
-<div class="item-name">Farmhouse Pizza</div>
-<div class="item-desc">Capsicum, onion, tomato, grilled mushroom & mozzarella cheese</div>
-<div class="item-specs">Type: Veg Pizza</div>
+<div class="item-name">LG 1.5 Ton Dual Inverter Split AC</div>
+<div class="item-desc">AI Convertible 6-in-1 cooling</div>
+<div class="item-specs">
+Product Code: LGAC15INV26<br>
+Serial: LGAC15X9921<br>
+Warranty: 1 Year Product / 10 Year Compressor
+</div>
 </td>
 <td>1</td>
-<td>Medium</td>
-<td>₹399</td>
-<td><strong>₹399</strong></td>
+<td>5 Star 2026 Model</td>
+<td>₹46,990</td>
+<td><strong>₹46,990</strong></td>
 </tr>
 
 <tr>
 <td>
-<div class="item-name">Garlic Breadsticks</div>
-<div class="item-desc">Freshly baked breadsticks with garlic seasoning & cheese dip</div>
-<div class="item-specs">Side</div>
+<div class="item-name">Apple AirPods (3rd Generation)</div>
+<div class="item-desc">Spatial audio with dynamic head tracking</div>
+<div class="item-specs">
+Product Code: AIRPODS3<br>
+Serial: APD3X77P21<br>
+Warranty: 1 Year Apple Warranty
+</div>
 </td>
 <td>1</td>
-<td>Regular</td>
-<td>₹149</td>
-<td><strong>₹149</strong></td>
-</tr>
-
-<tr>
-<td>
-<div class="item-name">Choco Lava Cake</div>
-<div class="item-desc">Warm chocolate cake with molten chocolate filling</div>
-<div class="item-specs">Dessert</div>
-</td>
-<td>1</td>
-<td>Single</td>
-<td>₹109</td>
-<td><strong>₹109</strong></td>
+<td>Wireless Charging Case</td>
+<td>₹19,900</td>
+<td><strong>₹19,900</strong></td>
 </tr>
 
 </tbody>
@@ -725,21 +721,21 @@ Phone: 1800-208-1234
 <div class="totals-section">
 
 <div class="items-count">
-Items Ordered: 3
+Items Purchased: 2
 </div>
 
 <div class="totals-table">
-<div>Subtotal: <strong>₹626</strong></div>
-<div>GST (5%): <strong>₹31</strong></div>
-<div class="net-total">Total: <strong>₹657</strong></div>
+<div>Subtotal: <strong>₹56,686</strong></div>
+<div>GST: <strong>₹10,204</strong></div>
+<div class="net-total">Total Paid: <strong>₹66,890</strong></div>
 </div>
 
 </div>
 
 <div class="footer">
 
-<p><strong>Thanks for choosing Domino's!</strong></p>
-<p>Order again at www.dominos.co.in</p>
+<p><strong>Thank you for shopping with Croma!</strong></p>
+<p>Visit www.croma.com for exclusive offers and services.</p>
 
 <div class="powered">
 Powered by RDEP
@@ -828,24 +824,21 @@ Powered by RDEP
 
 
     {/* Amount Card */}
-    <div className="mt-4 bg-gradient-to-r from-[#2CBC9C] to-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
+<div className="mt-4 bg-gradient-to-r from-[#2CBC9C] to-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
 
-      <div>
-        <div className="text-xs text-white/90">
-          Total Amount Paid
-        </div>
-
-        <div className="text-3xl font-semibold text-white">
-          ₹{currentReceipt.total.toFixed(2)}
-        </div>
-      </div>
-
-      <ShoppingBagIcon className="h-7 w-7 text-white/90" />
-
+  <div>
+    <div className="text-xs text-white/90">
+      Total Amount Paid
     </div>
 
+    <div className="text-3xl font-semibold text-white">
+      ₹{currentReceipt.total.toLocaleString("en-IN")}
+    </div>
   </div>
 
+  <ShoppingBagIcon className="h-7 w-7 text-white/90" />
+
+</div>
 
   {/* Receipt Metadata */}
   <div className="p-4 bg-white">
@@ -1912,322 +1905,271 @@ rel="noopener noreferrer"
 
 
       {/* Social Media & Store Details */}
+
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-  {/* Header */}
+{/* Header */}
+
   <div className="flex items-center mb-4">
 
-    <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-      <Share2 className="h-4 w-4 text-white" />
-    </div>
+<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+  <Share2 className="h-4 w-4 text-white" />
+</div>
 
-    <h3 className="text-sm font-semibold text-gray-900">
-      Stay Connected
-    </h3>
+<h3 className="text-sm font-semibold text-gray-900">
+  Stay Connected
+</h3>
 
   </div>
 
+{/* Social Links */}
 
-  {/* Social Links */}
   <div className="flex justify-center space-x-6 mb-4">
 
-    {/* Instagram */}
-    <button
-      onClick={() => handleSocialLink("https://www.instagram.com/dominos_india")}
-      className="flex flex-col items-center"
-    >
-      <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center mb-1">
-        <Instagram className="h-4 w-4 text-white" />
-      </div>
-      <span className="text-[11px] font-medium text-gray-700">Instagram</span>
-    </button>
+{/* Instagram */}
+<button
+  onClick={() => handleSocialLink("https://www.instagram.com/croma.retail/")}
+  className="flex flex-col items-center"
+>
+  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center mb-1">
+    <Instagram className="h-4 w-4 text-white" />
+  </div>
+
+  <span className="text-[11px] font-medium text-gray-700">
+    Instagram
+  </span>
+</button>
 
 
-    {/* Facebook */}
-    <button
-      onClick={() => handleSocialLink("https://www.facebook.com/DominosPizzaIndia")}
-      className="flex flex-col items-center"
-    >
-      <div className="w-9 h-9 rounded-full bg-[#1877F2] flex items-center justify-center mb-1">
-        <Facebook className="h-4 w-4 text-white" />
-      </div>
-      <span className="text-[11px] font-medium text-gray-700">Facebook</span>
-    </button>
+{/* Facebook */}
+<button
+  onClick={() => handleSocialLink("https://www.facebook.com/CromaRetail/")}
+  className="flex flex-col items-center"
+>
+  <div className="w-9 h-9 rounded-full bg-[#1877F2] flex items-center justify-center mb-1">
+    <Facebook className="h-4 w-4 text-white" />
+  </div>
+
+  <span className="text-[11px] font-medium text-gray-700">
+    Facebook
+  </span>
+</button>
 
 
-    {/* Website */}
-    <button
-      onClick={() => handleSocialLink("https://www.dominos.co.in")}
-      className="flex flex-col items-center"
-    >
-      <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center mb-1">
-        <ExternalLink className="h-4 w-4 text-white" />
-      </div>
-      <span className="text-[11px] font-medium text-gray-700">Website</span>
-    </button>
+{/* Website */}
+<button
+  onClick={() => handleSocialLink("https://www.croma.com")}
+  className="flex flex-col items-center"
+>
+  <div className="w-9 h-9 rounded-full bg-[#2CBC9C] flex items-center justify-center mb-1">
+    <ExternalLink className="h-4 w-4 text-white" />
+  </div>
+
+  <span className="text-[11px] font-medium text-gray-700">
+    Website
+  </span>
+</button>
 
   </div>
 
+{/* Store Location */}
 
-  {/* Store Location */}
   <div className="text-xs text-gray-600 text-center mb-3 bg-gray-50 p-3 rounded-xl">
 
-    <button
-      onClick={() => setShowStoreLocation(!showStoreLocation)}
-      className="w-full flex items-center justify-center mb-2 hover:text-[#E31837] transition-colors"
-    >
-      <MapPin className="h-3 w-3 mr-1 text-[#E31837]" />
-      <span className="font-semibold text-[#006491]">
-        Domino's Brigade Road, Bengaluru {showStoreLocation ? "▲" : "▼"}
-      </span>
-    </button>
+<button
+  onClick={() => setShowStoreLocation(!showStoreLocation)}
+  className="w-full flex items-center justify-center mb-2 hover:text-[#2CBC9C] transition-colors"
+>
+  <MapPin className="h-3 w-3 mr-1 text-[#2CBC9C]" />
 
-    {showStoreLocation && (
-      <div className="space-y-0.5">
-        <p className="font-semibold text-gray-900">Domino's Pizza</p>
-        <p>Brigade Road</p>
-        <p>Bengaluru, Karnataka 560001</p>
-        <p>India</p>
+  <span className="font-semibold text-[#2CBC9C]">
+    Croma {currentReceipt.branch}, Bengaluru {showStoreLocation ? "▲" : "▼"}
+  </span>
 
-        <p className="mt-2 text-[10px]">
-          GSTIN: 29ABCDE1234F1Z5
-        </p>
+</button>
 
-        <p className="mt-1 text-[#006491] font-semibold">
-          Store Manager: {currentReceipt.associate}
-        </p>
-      </div>
-    )}
+{showStoreLocation && (
+
+  <div className="space-y-0.5">
+
+    <p className="font-semibold text-gray-900">
+      Croma Retail Store
+    </p>
+
+    <p>{currentReceipt.branch}</p>
+
+    <p>Bengaluru, Karnataka</p>
+
+    <p>India</p>
+
+    <p className="mt-2 text-[10px]">
+      GSTIN: 29ABCDE1234F1Z5
+    </p>
+
+    <p className="mt-1 text-[#2CBC9C] font-semibold">
+      Store Associate: {currentReceipt.associate}
+    </p>
 
   </div>
 
+)}
 
-  {/* Terms */}
-  <button
-    className="w-full text-xs text-gray-500 hover:text-[#E31837] h-6 font-medium"
-    onClick={() => setShowTerms(!showTerms)}
-  >
-    Terms & Conditions {showTerms ? "▲" : "▼"}
+  </div>
+
+{/* Terms */}
+<button
+className="w-full text-xs text-gray-500 hover:text-[#2CBC9C] h-6 font-medium"
+onClick={() => setShowTerms(!showTerms)}
+
+>
+
+Terms & Conditions {showTerms ? "▲" : "▼"}
+
   </button>
 
-  {showTerms && (
-    <div className="text-[11px] text-gray-500 mt-2 space-y-1 px-2 font-medium">
+{showTerms && (
 
-      <p>• Domino's offers and coupons are subject to availability and store participation.</p>
-      <p>• Offers may vary by location and delivery zone.</p>
-      <p>• Prices include applicable GST.</p>
-      <p>• For support visit www.dominos.co.in/support.</p>
+<div className="text-[11px] text-gray-500 mt-2 space-y-1 px-2 font-medium">
 
-    </div>
-  )}
+  <p>• Products sold are subject to manufacturer warranty terms.</p>
 
+  <p>• Installation and service timelines may vary by location.</p>
 
-  {/* Powered by RDEP */}
+  <p>• Prices shown include applicable GST.</p>
+
+  <p>• For service support visit www.croma.com/support.</p>
+
+</div>
+
+)}
+
+{/* Powered by RDEP */}
+
   <div className="text-center mt-3 pt-3 border-t border-gray-100">
+<div className="flex items-center justify-center space-x-1">
 
-    <div className="flex items-center justify-center space-x-1">
+  <span className="text-xs text-gray-400 font-medium">
+    Powered by
+  </span>
 
-      <span className="text-xs text-gray-400 font-medium">
-        Powered by
-      </span>
+  <a
+    href="https://www.rdep.io"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center"
+  >
 
-      <a
-        href="https://www.rdep.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center"
-      >
-        <Image
-          src="/images/design-mode/RDEP%20cropped.png"
-          alt="RDEP"
-          width={60}
-          height={16}
-          className="object-contain"
-        />
-      </a>
+    <Image
+      src="/images/design-mode/RDEP cropped.png"
+      alt="RDEP"
+      width={60}
+      height={16}
+      className="object-contain"
+    />
 
-    </div>
+  </a>
+
+</div>
 
   </div>
 
 </div>
+
           <div id="height-marker" style={{ height: "1px" }} />
         </div>
 
-        {/* Feedback Modal */}
-        {showFeedbackModal && (
-          <div
-            style={getModalPositionRelativeToContainer(feedbackButtonRef)}
-            className="bg-white rounded-lg w-full overflow-hidden shadow-xl z-[9999] max-w-sm"
-          >
-            <div className="flex justify-between items-center p-4 border-b bg-blue-700 text-white">
-              <h3 className="text-lg font-semibold">How was your shopping experience?</h3>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 text-white"
-                onClick={() => setShowFeedbackModal(false)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <path d="M18 6 6 18"></path>
-                  <path d="m6 6 12 12"></path>
-                </svg>
-              </Button>
-            </div>
-
-            <div className="p-4 space-y-4 max-h-80 overflow-y-auto">
-              {[
-                { key: "service", label: "Service Quality" },
-                { key: "quality", label: "Product Quality" },
-                { key: "style", label: "Shoe Style/Design" },
-                { key: "pricing", label: "Value for Money" },
-                { key: "store", label: "Store Ambiance" },
-              ].map((category) => (
-                <div key={category.key} className="flex items-center justify-between">
-                  <span className="text-sm">{category.label}</span>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Button
-                        key={star}
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8 p-0"
-                        onClick={() =>
-                          setFeedback((prev) => ({
-                            ...prev,
-                            [category.key as keyof typeof feedback]: star,
-                          }))
-                        }
-                      >
-                        <Star
-                          className={`h-5 w-5 ${
-                            feedback[category.key as keyof typeof feedback] >= star
-                              ? "text-yellow-400 fill-yellow-400"
-                              : "text-gray-300"
-                          }`}
-                        />
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <Textarea
-                placeholder="Please share your feedback about your purchase (optional)"
-                className="mt-2"
-                value={feedback.comments}
-                onChange={(e) => setFeedback((prev) => ({ ...prev, comments: e.target.value }))}
-              />
-            </div>
-
-            <div className="p-4 border-t">
-              <Button className="w-full bg-blue-700 hover:bg-blue-800 text-white" onClick={handleFeedbackSubmit}>
-                Submit Feedback
-              </Button>
-            </div>
-          </div>
-        )}
 
         {/* Transaction History Modal */}
 {showTransactionHistory && (
+
   <div className="fixed inset-0 z-[9999] flex items-center justify-center">
 
-    {/* Backdrop */}
-    <div
-      className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-      onClick={() => setShowTransactionHistory(false)}
-    />
+{/* Backdrop */}
+<div
+  className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+  onClick={() => setShowTransactionHistory(false)}
+/>
 
-    {/* Modal */}
-    <div className="relative bg-white rounded-2xl w-full max-w-sm mx-4 shadow-2xl border border-gray-200 font-poppins overflow-hidden">
+{/* Modal */}
+<div className="relative bg-white rounded-2xl w-full max-w-sm mx-4 shadow-2xl border border-gray-200 font-poppins overflow-hidden">
 
-      {/* Header */}
-      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+  {/* Header */}
+  <div className="flex justify-between items-center p-4 border-b border-gray-100">
 
-        <div className="flex items-center">
+    <div className="flex items-center">
 
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-            <History className="h-4 w-4 text-white" />
-          </div>
-
-          <h3 className="text-sm font-semibold text-gray-900">
-            Order History
-          </h3>
-
-        </div>
-
-        <button
-          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
-          onClick={() => setShowTransactionHistory(false)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="h-4 w-4 text-gray-500"
-          >
-            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </button>
-
+      <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+        <History className="h-4 w-4 text-white" />
       </div>
 
-
-      {/* Transaction List */}
-      <div className="max-h-80 overflow-y-auto p-4 space-y-3">
-
-        {transactionHistory.map((transaction) => (
-
-          <button
-            key={transaction.id}
-            onClick={() => {
-              setCurrentReceiptId(transaction.id)
-              setShowTransactionHistory(false)
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }}
-            className="w-full flex items-center p-3 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#E31837] transition"
-          >
-
-            <div className="bg-white border border-gray-200 p-2 rounded-lg mr-3">
-              <FileText className="h-4 w-4 text-[#006491]" />
-            </div>
-
-            <div className="flex-grow text-left">
-
-              <div className="text-sm font-semibold text-gray-900">
-                Domino's
-              </div>
-
-              <div className="text-[11px] text-gray-500">
-                {transaction.date}
-              </div>
-
-            </div>
-
-            <div className="text-sm font-semibold text-[#006491]">
-              ₹{transaction.amount.toFixed(2)}
-            </div>
-
-          </button>
-
-        ))}
-
-      </div>
+      <h3 className="text-sm font-semibold text-gray-900">
+        Purchase History
+      </h3>
 
     </div>
 
+    <button
+      className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+      onClick={() => setShowTransactionHistory(false)}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="h-4 w-4 text-gray-500"
+      >
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    </button>
+
+  </div>
+
+
+  {/* Transaction List */}
+  <div className="max-h-80 overflow-y-auto p-4 space-y-3">
+
+    {transactionHistory.map((transaction) => (
+
+      <button
+        key={transaction.id}
+        onClick={() => {
+          setCurrentReceiptId(transaction.id)
+          setShowTransactionHistory(false)
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        }}
+        className="w-full flex items-center p-3 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#2CBC9C] transition"
+      >
+
+        <div className="bg-white border border-gray-200 p-2 rounded-lg mr-3">
+          <FileText className="h-4 w-4 text-[#2CBC9C]" />
+        </div>
+
+        <div className="flex-grow text-left">
+
+          <div className="text-sm font-semibold text-gray-900">
+            Croma
+          </div>
+
+          <div className="text-[11px] text-gray-500">
+            {transaction.date}
+          </div>
+
+        </div>
+
+        <div className="text-sm font-semibold text-[#2CBC9C]">
+          ₹{transaction.amount.toFixed(2)}
+        </div>
+
+      </button>
+
+    ))}
+
+  </div>
+
+</div>
+
   </div>
 )}
+
         {/* Refer & Earn Modal */}
         {showReferModal && (
           <div
