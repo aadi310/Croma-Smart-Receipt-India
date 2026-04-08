@@ -1163,124 +1163,92 @@ Powered by RDEP
 
 </div>
 
-      {/* Rewards Loyalty Section */}
+      {/* Loyalty / NeuCoins Section */}
+
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
-
-  {/* Banner */}
-  <div className="relative">
-    <img
-      src="https://www.dominos.co.in/blog/wp-content/uploads/2022/07/dominos-cheesy-rewards-loyalty-program.jpg"
-      alt="Domino's Rewards"
-      className="w-full h-36 object-cover"
-    />
-
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-
-    <div className="absolute bottom-4 left-4 right-4 text-white">
-      <div className="text-lg font-semibold leading-tight">
-        Domino's Rewards
-      </div>
-
-      <div className="text-xs opacity-90">
-        Earn slices with every order and unlock free pizza
-      </div>
-    </div>
-  </div>
-
 
   <div className="p-4">
 
-    {/* Overview */}
-    <div className="grid grid-cols-3 gap-3 mb-4">
 
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">+2</div>
-        <div className="text-xs text-gray-600">Slices Earned</div>
-      </div>
+{/* Header */}
+<div className="flex items-center mb-4">
 
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">6</div>
-        <div className="text-xs text-gray-600">Total Slices</div>
-      </div>
+  <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+    <Sparkles className="h-4 w-4 text-white" />
+  </div>
 
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">Free Pizza</div>
-        <div className="text-xs text-gray-600">Next Reward</div>
-      </div>
-
+  <div>
+    <div className="text-sm font-semibold text-gray-900">
+      NeuCoins Rewards
     </div>
 
-
-    {/* Progress */}
-    <div className="bg-[#F4F8FB] rounded-xl p-4 border border-[#DDEAF2]">
-
-      <div className="flex justify-between text-xs text-gray-600 mb-2">
-        <span>Reward Progress</span>
-        <span>6 / 10 slices</span>
-      </div>
-
-      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-[#E31837] rounded-full"
-          style={{ width: "60%" }}
-        />
-      </div>
-
-      <div className="text-xs text-gray-600 mt-2">
-        Only <span className="font-semibold text-[#E31837]">4 slices</span> away from your free pizza reward.
-      </div>
-
+    <div className="text-xs text-gray-500">
+      Earn rewards across the Tata Neu ecosystem
     </div>
+  </div>
+
+</div>
 
 
-    {/* Reward Journey */}
-    <div className="mt-4">
+{/* Overview Stats */}
+<div className="grid grid-cols-3 gap-3 mb-4">
 
-      <div className="text-sm font-semibold text-gray-900 mb-2">
-        Your Reward Journey
-      </div>
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">+669</div>
+    <div className="text-xs text-gray-600">Coins Earned</div>
+  </div>
 
-      <div className="flex items-center justify-between text-center text-xs">
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">4,280</div>
+    <div className="text-xs text-gray-600">Total Coins</div>
+  </div>
 
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#006491] text-white flex items-center justify-center">✓</div>
-          <div className="mt-1">Garlic Bread</div>
-        </div>
+  <div className="bg-[#F1FBF8] rounded-xl p-3 text-center border border-[#D6F2EC]">
+    <div className="text-lg font-semibold text-[#2CBC9C]">Gold</div>
+    <div className="text-xs text-gray-600">Member Tier</div>
+  </div>
 
-        <div className="flex-1 h-[2px] bg-gray-200 mx-2"></div>
-
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#006491] text-white flex items-center justify-center">✓</div>
-          <div className="mt-1">Choco Lava</div>
-        </div>
-
-        <div className="flex-1 h-[2px] bg-gray-200 mx-2"></div>
-
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full border-2 border-[#E31837] text-[#E31837] flex items-center justify-center">🍕</div>
-          <div className="mt-1">Free Pizza</div>
-        </div>
-
-      </div>
-
-    </div>
+</div>
 
 
-    {/* CTA */}
-    <div className="mt-4">
-      <a
-        href="https://pizzaonline.dominos.co.in"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full text-center bg-[#006491] text-white rounded-xl py-2 text-sm font-medium hover:opacity-90 transition"
-      >
-        View Domino's Rewards
-      </a>
-    </div>
+{/* Tier Progress */}
+<div className="bg-[#F1FBF8] rounded-xl p-4 border border-[#D6F2EC]">
+
+  <div className="flex justify-between text-xs text-gray-600 mb-2">
+    <span>Progress to Platinum</span>
+    <span>4280 / 6000</span>
+  </div>
+
+  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+
+    <div
+      className="h-full bg-[#2CBC9C] rounded-full"
+      style={{ width: "71%" }}
+    />
+
+  </div>
+
+  <div className="text-xs text-gray-600 mt-2">
+    Only <span className="font-semibold text-[#2CBC9C]">1,720 coins</span> away from Platinum benefits.
+  </div>
+
+</div>
+
+
+{/* Member Benefit */}
+<div className="mt-4 bg-gray-50 rounded-xl border border-gray-200 p-3 text-center">
+
+  <div className="text-xs text-gray-600">
+    Gold members enjoy priority service, exclusive offers and faster NeuCoins rewards.
+  </div>
+
+</div>
+
 
   </div>
 
 </div>
+
           
 {/* Promo Banner Carousel */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden mx-3 mt-4 relative font-poppins">
