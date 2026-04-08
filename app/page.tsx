@@ -28,7 +28,7 @@ import {
   Facebook,
   Sparkles,
   ShieldCheck, PlugZap, Headphones, Wrench, 
-  Truck, Package, CheckCircle2, ExternalLink,
+  Truck, Package, CheckCircle2,
   MapPin,
   ShoppingBagIcon,
   Receipt as ReceiptIcon,
