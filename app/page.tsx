@@ -806,7 +806,7 @@ Powered by RDEP
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
 
   {/* Header */}
-  <div className="bg-[#2CBC9C] px-5 pt-5 pb-6 text-white">
+  <div className="bg-black px-5 pt-5 pb-6 text-white">
 
     <div className="flex items-start justify-between">
 
@@ -836,21 +836,21 @@ Powered by RDEP
         Thank you {customerName}
       </div>
 
-      <div className="text-sm text-white/90">
+      <div className="text-sm text-gray-300">
         Your purchase at Croma is confirmed
       </div>
     </div>
 
 
-    {/* Amount Paid */}
-    <div className="mt-4 bg-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
+    {/* Amount Card */}
+    <div className="mt-4 bg-gradient-to-r from-[#2CBC9C] to-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
 
       <div>
-        <div className="text-xs opacity-90">
+        <div className="text-xs text-white/90">
           Total Amount Paid
         </div>
 
-        <div className="text-3xl font-semibold">
+        <div className="text-3xl font-semibold text-white">
           ₹{currentReceipt.total.toFixed(2)}
         </div>
       </div>
@@ -865,12 +865,12 @@ Powered by RDEP
   {/* Receipt Metadata */}
   <div className="p-4 bg-white">
 
-    <div className="bg-gray-50 rounded-xl border border-gray-200 p-3 space-y-2">
+    <div className="bg-[#E8F7F4] rounded-xl border border-[#CFEDEA] p-3 space-y-2">
 
       {/* Receipt ID */}
       <div className="flex justify-between items-center">
 
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-gray-600">
           Receipt ID
         </span>
 
@@ -884,7 +884,7 @@ Powered by RDEP
       {/* Date & Time */}
       <div className="flex justify-between items-center">
 
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-gray-600">
           Date & Time
         </span>
 
@@ -898,7 +898,7 @@ Powered by RDEP
       {/* Store */}
       <div className="flex justify-between items-center">
 
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-gray-600">
           Store
         </span>
 
