@@ -27,7 +27,7 @@ import {
   Share2,
   Facebook,
   Sparkles,
-  ShieldCheck, PlugZap, Headphones,
+  ShieldCheck, PlugZap, Headphones, Wrench, 
   MapPin,
   ShoppingBagIcon,
   Receipt as ReceiptIcon,
@@ -1806,107 +1806,110 @@ rel="noopener noreferrer"
 </div>
 
          {/* Receipt Actions */}
+
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
   <div className="grid grid-cols-3 gap-3">
-
-    {/* Order History */}
-    <button
-      ref={historyButtonRef}
-      onClick={handleTransactionHistoryOpen}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <History className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Orders
-      </span>
-    </button>
-
-
-    {/* Email Receipt */}
-    <button
-      onClick={handleEmailReceipt}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <Mail className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Email
-      </span>
-    </button>
+{/* Purchase History */}
+<button
+  ref={historyButtonRef}
+  onClick={handleTransactionHistoryOpen}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <History className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    History
+  </span>
+</button>
 
 
-    {/* Download Receipt */}
-    <button
-      onClick={handleDownloadReceipt}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <Download className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Download
-      </span>
-    </button>
+{/* Email Receipt */}
+<button
+  onClick={handleEmailReceipt}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <Mail className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    Email
+  </span>
+</button>
+
+
+{/* Download Receipt */}
+<button
+  onClick={handleDownloadReceipt}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <Download className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    Download
+  </span>
+</button>
 
   </div>
 
 </div>
+
           
        {/* Need Help Section */}
+
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-  {/* Header */}
+{/* Header */}
+
   <div className="flex items-center mb-3">
 
-    <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-      <Send className="h-4 w-4 text-white" />
-    </div>
+<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+  <Send className="h-4 w-4 text-white" />
+</div>
 
-    <h3 className="text-sm font-semibold text-gray-900">
-      Domino's Support
-    </h3>
+<h3 className="text-sm font-semibold text-gray-900">
+  Need Help?
+</h3>
 
   </div>
 
-
   <div className="grid grid-cols-3 gap-3">
 
-    {/* Chat */}
-    <button
-      onClick={handleWhatsApp}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <MessageSquare className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Chat
-      </span>
-    </button>
+{/* Chat Support */}
+<button
+  onClick={handleWhatsApp}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <MessageSquare className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    Chat
+  </span>
+</button>
 
 
-    {/* Call */}
-    <button
-      onClick={handleCall}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <Phone className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Call
-      </span>
-    </button>
+{/* Call Support */}
+<button
+  onClick={handleCall}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <Phone className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    Call
+  </span>
+</button>
 
 
-    {/* Email */}
-    <button
-      onClick={handleEmail}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
-    >
-      <Mail className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Email
-      </span>
-    </button>
+{/* Service Request */}
+<button
+  onClick={handleEmail}
+  className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+>
+  <Wrench className="h-5 w-5 text-[#2CBC9C] mb-1" />
+  <span className="text-[11px] font-medium text-gray-700">
+    Service
+  </span>
+</button>
 
   </div>
 
 </div>
+
 
       {/* Social Media & Store Details */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
