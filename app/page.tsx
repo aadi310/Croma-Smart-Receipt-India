@@ -1251,137 +1251,118 @@ Powered by RDEP
 
           
 {/* Promo Banner Carousel */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden mx-3 mt-4 relative font-poppins">
-  <Carousel
-    className="w-full"
-    setApi={setPromoApi}
-    opts={{
-      loop: true,
-    }}
-  >
-    <CarouselContent>
 
-      {/* Banner 1 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
+<div className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden mx-3 mt-4 relative">
 
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/Home_Paytm_20210519.jpg"
-              alt="Domino's Paytm Offer"
-              fill
-              className="object-contain"
-              priority
-            />
-          </a>
+<Carousel
+className="w-full"
+setApi={setPromoApi}
+opts={{
+loop: true,
+}}
 
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
-
-        </div>
-      </CarouselItem>
+>
 
 
-      {/* Banner 2 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
+<CarouselContent>
 
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/amazon_home_20210412.jpg"
-              alt="Domino's Amazon Offer"
-              fill
-              className="object-contain"
-            />
-          </a>
+  {/* Banner 1 */}
+  <CarouselItem>
+    <div className="relative w-full aspect-[5/3]">
 
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
+      <a
+        href="https://www.croma.com/lp-flash-sale"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full h-full relative"
+      >
 
-        </div>
-      </CarouselItem>
-
-
-      {/* Banner 3 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
-
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/Home_Freecharge_20210405.jpg"
-              alt="Domino's Freecharge Offer"
-              fill
-              className="object-contain"
-            />
-          </a>
-
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
-
-        </div>
-      </CarouselItem>
-
-    </CarouselContent>
-
-
-    {/* Pagination Dots */}
-    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
-      {[0, 1, 2].map((index) => (
-        <button
-          key={index}
-          onClick={() => promoApi?.scrollTo(index)}
-          className={`h-1.5 rounded-full transition-all duration-300 ${
-            currentSlide === index
-              ? "w-5 bg-[#E31837]"
-              : "w-1.5 bg-white/70"
-          }`}
+        <Image
+          src="/images/design-mode/Croma_Banner_1.png"
+          alt="Croma Flash Sale"
+          fill
+          className="object-cover"
+          priority
         />
-      ))}
+
+      </a>
+
     </div>
+  </CarouselItem>
+
+
+  {/* Banner 2 */}
+  <CarouselItem>
+    <div className="relative w-full aspect-[5/3]">
+
+      <a
+        href="https://www.croma.com/lp-weekly-circuit"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full h-full relative"
+      >
+
+        <Image
+          src="/images/design-mode/Croma_Banner_2.png"
+          alt="Croma Weekly Circuit"
+          fill
+          className="object-cover"
+        />
+
+      </a>
+
+    </div>
+  </CarouselItem>
+
+
+  {/* Banner 3 */}
+  <CarouselItem>
+    <div className="relative w-full aspect-[5/3]">
+
+      <a
+        href="https://www.croma.com/campaign/best-deals-on-acs/c/5842?q=%3Arelevance%3Alower_categories%3A867"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full h-full relative"
+      >
+
+        <Image
+          src="/images/design-mode/Croma_Banner_3.png"
+          alt="Best Deals on ACs"
+          fill
+          className="object-cover"
+        />
+
+      </a>
+
+    </div>
+  </CarouselItem>
+
+</CarouselContent>
+
+
+{/* Pagination Dots */}
+<div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+
+  {[0, 1, 2].map((index) => (
+
+    <button
+      key={index}
+      onClick={() => promoApi?.scrollTo(index)}
+      className={`h-1.5 rounded-full transition-all duration-300 ${
+        currentSlide === index
+          ? "w-5 bg-[#2CBC9C]"
+          : "w-1.5 bg-white/70"
+      }`}
+    />
+
+  ))}
+
+</div>
+
 
   </Carousel>
+
 </div>
 
           {/* Join Domino's Rewards Section */}
