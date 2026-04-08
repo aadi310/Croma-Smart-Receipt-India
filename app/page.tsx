@@ -1409,7 +1409,7 @@ loop: true,
 
     <div>
       <div className="text-sm font-semibold text-gray-900">
-        Save Your Details
+        Join Croma Loyalty
       </div>
 
       <div className="text-xs text-gray-500">
