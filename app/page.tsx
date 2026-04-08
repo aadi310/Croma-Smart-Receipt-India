@@ -29,7 +29,6 @@ import {
   Sparkles,
   MapPin,
   ShoppingBagIcon,
-  Utensils,
   Receipt as ReceiptIcon,
 } from "lucide-react"
 
@@ -38,6 +37,7 @@ interface Receipt {
   date: string
   time: string
   associate: string
+  branch: string
   items: Array<{
     id: number
     name: string
@@ -49,9 +49,13 @@ interface Receipt {
     baseAmount?: number
     tax?: number
     itemCode?: string
-    size?: string
-    color?: string
-    material?: string
+    variant?: string
+    serialNumber?: string
+    warranty?: string
+
+    installationAvailable?: boolean
+    installationStatus?: string
+    installationScheduledDate?: string
   }>
   subtotal: number
   tax: number
@@ -194,174 +198,154 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
     })
   }, [promoApi])
 
- const receipts = {
+const receipts = {
+
   current: {
-    id: "DMBLR7891XQ12",
+    id: "CRBLR7891XQ12",
     date: "05-03-2026",
     time: "19:22:18",
     associate: "Rahul Kumar",
     branch: "Brigade Road",
+
     items: [
       {
         id: 0,
-        name: "Farmhouse Pizza",
-        size: "Medium",
-        description:
-          "Loaded with capsicum, onion, tomato, grilled mushroom & mozzarella cheese",
-        price: 399,
+        name: "LG 1.5 Ton Dual Inverter Split AC",
+        variant: "5 Star 2026 Model",
+        description: "AI Convertible 6-in-1 cooling",
+        price: 46990,
         quantity: 1,
-        category: "Veg Pizza",
-        taxApplicable: true,
-        baseAmount: 380,
-        tax: 19,
-        itemCode: "P101",
-        type: "Veg",
+        category: "Air Conditioners",
+        baseAmount: 39822,
+        tax: 7168,
+        itemCode: "LGAC15INV26",
+        serialNumber: "LGAC15X9921",
+        warranty: "1 Year Product / 10 Year Compressor",
+
+        installationAvailable: true,
+        installationStatus: "Scheduled",
+        installationScheduledDate: "07 Mar 2026"
       },
+
       {
         id: 1,
-        name: "Garlic Breadsticks",
-        size: "Regular",
-        description:
-          "Freshly baked breadsticks with garlic seasoning and cheese dip",
-        price: 149,
+        name: "Apple AirPods (3rd Generation)",
+        variant: "Wireless Charging Case",
+        description: "Spatial audio with dynamic head tracking",
+        price: 19900,
         quantity: 1,
-        category: "Sides",
-        taxApplicable: true,
-        baseAmount: 142,
-        tax: 7,
-        itemCode: "S210",
-      },
-      {
-        id: 2,
-        name: "Choco Lava Cake",
-        size: "Single",
-        description:
-          "Warm chocolate cake with molten chocolate filling inside",
-        price: 109,
-        quantity: 1,
-        category: "Desserts",
-        taxApplicable: true,
-        baseAmount: 104,
-        tax: 5,
-        itemCode: "D330",
-      },
+        category: "Audio",
+        baseAmount: 16864,
+        tax: 3036,
+        itemCode: "AIRPODS3",
+        serialNumber: "APD3X77P21",
+        warranty: "1 Year Apple Warranty"
+      }
     ],
-    subtotal: 626,
-    tax: 31,
-    total: 657,
+
+    subtotal: 56686,
+    tax: 10204,
+    total: 66890
   },
 
+
   hist1: {
-    id: "DMBLR6719YT92",
+    id: "CRBLR6719YT92",
     date: "20-01-2026",
     time: "14:22:18",
     associate: "Anita Sharma",
     branch: "Indiranagar",
+
     items: [
       {
         id: 0,
-        name: "Chicken Dominator",
-        size: "Medium",
-        description:
-          "Loaded with double pepper barbecue chicken, peri-peri chicken & grilled chicken rashers",
-        price: 549,
+        name: "Samsung 55\" Crystal 4K UHD Smart TV",
+        variant: "CU7700 55 inch",
+        description: "Crystal Processor 4K with HDR10+",
+        price: 54990,
         quantity: 1,
-        category: "Non-Veg Pizza",
-        taxApplicable: true,
-        baseAmount: 523,
-        tax: 26,
-        itemCode: "P210",
-        type: "Chicken",
+        category: "Televisions",
+        baseAmount: 46517,
+        tax: 8473,
+        itemCode: "SAM55CU7700",
+        serialNumber: "SAMTV55CU7721",
+        warranty: "1 Year Samsung Warranty",
+
+        installationAvailable: true,
+        installationStatus: "Completed",
+        installationScheduledDate: "22 Jan 2026"
       },
+
       {
         id: 1,
-        name: "Stuffed Garlic Bread",
-        size: "Regular",
-        description:
-          "Freshly baked bread stuffed with mozzarella cheese and jalapenos",
-        price: 169,
+        name: "Amazon Fire TV Stick 4K",
+        variant: "4K Streaming",
+        description: "Dolby Vision with Alexa Voice Remote",
+        price: 5999,
         quantity: 1,
-        category: "Sides",
-        taxApplicable: true,
-        baseAmount: 161,
-        tax: 8,
-        itemCode: "S230",
-      },
-      {
-        id: 2,
-        name: "Pepsi",
-        size: "500ml",
-        description: "Chilled Pepsi soft drink",
-        price: 60,
-        quantity: 1,
-        category: "Beverages",
-        taxApplicable: true,
-        baseAmount: 57,
-        tax: 3,
-        itemCode: "B310",
-      },
+        category: "Streaming Devices",
+        baseAmount: 5084,
+        tax: 915,
+        itemCode: "AMZFTV4K",
+        serialNumber: "AMZ4KTV881",
+        warranty: "1 Year Warranty"
+      }
     ],
-    subtotal: 741,
-    tax: 37,
-    total: 778,
+
+    subtotal: 51601,
+    tax: 9388,
+    total: 60989
   },
 
+
   hist2: {
-    id: "DMBLR5590LP33",
+    id: "CRBLR5590LP33",
     date: "15-12-2025",
     time: "12:45:33",
     associate: "Sanjay Reddy",
     branch: "Koramangala",
+
     items: [
       {
         id: 0,
-        name: "Veg Extravaganza",
-        size: "Medium",
-        description:
-          "Black olives, capsicum, onion, grilled mushroom, corn, tomato & jalapeno",
-        price: 429,
+        name: "Kent RO Water Purifier",
+        variant: "Grand Plus RO + UV",
+        description: "RO+UV+UF purification with TDS control",
+        price: 18990,
         quantity: 1,
-        category: "Veg Pizza",
-        taxApplicable: true,
-        baseAmount: 409,
-        tax: 20,
-        itemCode: "P140",
-        type: "Veg",
+        category: "Water Purifiers",
+        baseAmount: 16093,
+        tax: 2897,
+        itemCode: "KENTGRANDPLUS",
+        serialNumber: "KENTRO8891",
+        warranty: "1 Year Kent Warranty",
+
+        installationAvailable: true,
+        installationStatus: "Completed",
+        installationScheduledDate: "16 Dec 2025"
       },
+
       {
         id: 1,
-        name: "Taco Mexicana",
-        size: "Regular",
-        description:
-          "Mexican herbs with jalapenos, onions, tomatoes and taco seasoning",
-        price: 279,
+        name: "Logitech MX Master 3S Mouse",
+        variant: "Wireless Bluetooth",
+        description: "Advanced productivity mouse",
+        price: 9995,
         quantity: 1,
-        category: "Veg Pizza",
-        taxApplicable: true,
-        baseAmount: 266,
-        tax: 13,
-        itemCode: "P150",
-        type: "Veg",
-      },
-      {
-        id: 2,
-        name: "Butterscotch Mousse Cake",
-        size: "Single",
-        description:
-          "Soft butterscotch flavored mousse dessert with caramel topping",
-        price: 119,
-        quantity: 1,
-        category: "Desserts",
-        taxApplicable: true,
-        baseAmount: 113,
-        tax: 6,
-        itemCode: "D310",
-      },
+        category: "Computer Accessories",
+        baseAmount: 8461,
+        tax: 1534,
+        itemCode: "LOGMXM3S",
+        serialNumber: "LOGM3S9901",
+        warranty: "1 Year Logitech Warranty"
+      }
     ],
-    subtotal: 788,
-    tax: 39,
-    total: 827,
-  },
+
+    subtotal: 24554,
+    tax: 4431,
+    total: 28985
+  }
+
 };
   
   const currentReceipt = receipts[currentReceiptId]
@@ -372,11 +356,11 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
     {
       id: "current",
       date: "05-03-2026",
-      branch: "Domino's",
-      amount: currentReceiptId === "current" ? receipts.current.subtotal + receipts.current.tax : 657.00,
+      branch: "Croma",
+      amount: currentReceiptId === "current" ? receipts.current.subtotal + receipts.current.tax : 66890.00,
     },
-    { id: "hist1", date: "20-01-2026", branch: "Domino's", amount: 778.00 },
-    { id: "hist2", date: "15-12-2025", branch: "Domino's", amount: 827.00 },
+    { id: "hist1", date: "20-01-2026", branch: "Croma", amount: 60989.00 },
+    { id: "hist2", date: "15-12-2025", branch: "Croma", amount: 28985.00 },
   ]
 
   const toggleProductExpansion = (productId: number) => {
@@ -837,7 +821,7 @@ Powered by RDEP
       </div>
 
       <div className="text-sm text-gray-300">
-        Your purchase at Croma is confirmed
+        We hope to see you again soon!
       </div>
     </div>
 
@@ -915,231 +899,258 @@ Powered by RDEP
 </div>
           
           {/* Purchase Details */}
+
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 p-4">
 
-  {/* Header */}
-  <div className="flex items-center justify-between mb-4">
-    <h3 className="text-lg font-semibold flex items-center text-[#006491]">
-      <Utensils className="mr-2 h-5 w-5" />
-      Your Order
-    </h3>
+{/* Header */}
 
-    <span className="text-xs font-medium border border-[#006491] text-[#006491] px-2 py-1 rounded-full">
-      {currentReceipt.items.length} items
-    </span>
+  <div className="flex items-center justify-between mb-4">
+
+```
+<h3 className="text-lg font-semibold flex items-center text-[#2CBC9C]">
+  <ShoppingBagIcon className="mr-2 h-5 w-5" />
+  Purchased Products
+</h3>
+
+<span className="text-xs font-medium border border-[#2CBC9C] text-[#2CBC9C] px-2 py-1 rounded-full">
+  {currentReceipt.items.length} items
+</span>
+```
+
   </div>
 
+{/* Product List */}
 
-  {/* Items */}
   <div className="space-y-3">
 
-    {currentReceipt.items.map((product) => (
+```
+{currentReceipt.items.map((product) => (
 
-      <div
-        key={product.id}
-        className="bg-[#F4F8FB] rounded-xl p-3 border border-[#DDEAF2]"
-      >
+  <div
+    key={product.id}
+    className="bg-[#F1FBF8] rounded-xl p-3 border border-[#D6F2EC]"
+  >
 
-        {/* Item Header */}
-        <div
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleProductExpansion(product.id)}
-        >
+    {/* Product Header */}
+    <div
+      className="flex items-center justify-between cursor-pointer"
+      onClick={() => toggleProductExpansion(product.id)}
+    >
 
-          <div className="flex items-center flex-1">
+      <div className="flex items-center flex-1">
 
-            <ChevronRight
-              className={`h-4 w-4 mr-2 text-[#006491] transition-transform duration-200 ${
-                expandedProducts.includes(product.id) ? "rotate-90" : ""
-              }`}
-            />
-
-            <div>
-              <div className="font-medium text-sm text-gray-900">
-                {product.name}
-              </div>
-
-              <div className="text-xs text-gray-500">
-                {product.category}
-              </div>
-            </div>
-
-          </div>
-
-
-          <div className="text-right">
-
-            <div className="text-xs text-gray-500">
-              Qty {product.quantity}
-            </div>
-
-            <div className="font-semibold text-sm text-[#006491]">
-              ₹{(product.price * product.quantity).toFixed(2)}
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* Expanded Product Info */}
-        {expandedProducts.includes(product.id) && (
-
-          <div className="mt-3 pt-3 border-t border-[#DDEAF2] text-xs text-gray-600 grid grid-cols-2 gap-y-1">
-
-            <div>Item Code: {product.itemCode}</div>
-            <div>Size: {product.size}</div>
-            <div>Base: ₹{product.baseAmount?.toFixed(2)}</div>
-            <div>Tax: ₹{product.tax?.toFixed(2)}</div>
-
-          </div>
-
-        )}
-
-
-        {/* Item Feedback Toggle */}
-        <div className="mt-3">
-
-          <button
-            onClick={() => toggleItemFeedback(product.id)}
-            className="text-xs text-[#E31837] font-medium"
-          >
-            {expandedItemFeedback.includes(product.id)
-              ? "Hide item feedback"
-              : "Rate this item"}
-          </button>
-
-        </div>
-
-
-        {/* Item Feedback Panel */}
-        {expandedItemFeedback.includes(product.id) && (
-
-          <div className="mt-3 bg-white border border-gray-200 rounded-xl p-3">
-
-            {/* Rating */}
-            <div className="flex justify-center gap-2 mb-3">
-
-              {[1,2,3,4,5].map((star) => (
-
-                <button
-                  key={star}
-                  onClick={() => setItemRating(product.id, star)}
-                >
-
-                  <Star
-                    className={`h-5 w-5 ${
-                      star <= (itemFeedback[product.id]?.rating || 0)
-                        ? "fill-[#E31837] text-[#E31837]"
-                        : "text-gray-300"
-                    }`}
-                  />
-
-                </button>
-
-              ))}
-
-            </div>
-
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 justify-center">
-
-              {["Taste","Freshness","Portion","Temperature"].map((tag) => {
-
-                const active =
-                  itemFeedback[product.id]?.tags?.includes(tag)
-
-                return (
-
-                  <button
-                    key={tag}
-                    onClick={() => toggleItemTag(product.id, tag)}
-                    className={`text-[11px] px-2 py-1 rounded-full border ${
-                      active
-                        ? "bg-[#E31837] text-white border-[#E31837]"
-                        : "border-gray-200"
-                    }`}
-                  >
-                    {tag}
-                  </button>
-
-                )
-
-              })}
-
-            </div>
-
-          </div>
-
-        )}
-
-      </div>
-
-    ))}
-
-  </div>
-
-
-  {/* Totals */}
-  <div className="mt-5 pt-4 border-t border-gray-200 space-y-2 text-sm">
-
-    <div className="flex justify-between">
-      <span className="text-gray-600">Subtotal</span>
-      <span>₹{currentReceipt.subtotal.toFixed(2)}</span>
-    </div>
-
-    <div className="flex justify-between">
-      <span className="text-gray-600">Tax</span>
-      <span>₹{currentReceipt.tax.toFixed(2)}</span>
-    </div>
-
-    <div className="flex justify-between text-base font-semibold pt-2 border-t border-gray-200">
-      <span>Total Paid</span>
-      <span className="text-[#006491]">
-        ₹{currentReceipt.total.toFixed(2)}
-      </span>
-    </div>
-
-  </div>
-
-
-  {/* Payment */}
-  <div className="mt-5">
-
-    <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-center justify-between">
-
-      <div className="flex items-center">
-
-        <div className="w-8 h-8 bg-[#006491] rounded-lg flex items-center justify-center mr-3">
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-            <line x1="1" y1="10" x2="23" y2="10"></line>
-          </svg>
-        </div>
+        <ChevronRight
+          className={`h-4 w-4 mr-2 text-[#2CBC9C] transition-transform duration-200 ${
+            expandedProducts.includes(product.id) ? "rotate-90" : ""
+          }`}
+        />
 
         <div>
-          <div className="text-xs font-medium">
-            Card Payment
+          <div className="font-medium text-sm text-gray-900">
+            {product.name}
           </div>
 
           <div className="text-xs text-gray-500">
-            **** **** **** 4532
+            {product.category}
           </div>
         </div>
 
       </div>
 
-      <div className="text-sm font-semibold text-[#006491]">
-        ₹{currentReceipt.total.toFixed(2)}
+
+      <div className="text-right">
+
+        <div className="text-xs text-gray-500">
+          Qty {product.quantity}
+        </div>
+
+        <div className="font-semibold text-sm text-[#2CBC9C]">
+          ₹{(product.price * product.quantity).toFixed(2)}
+        </div>
+
       </div>
 
     </div>
+
+
+    {/* Expanded Product Details */}
+    {expandedProducts.includes(product.id) && (
+
+      <div className="mt-3 pt-3 border-t border-[#D6F2EC] text-xs text-gray-600 grid grid-cols-2 gap-y-1">
+
+        <div>Variant: {product.variant}</div>
+        <div>Product Code: {product.itemCode}</div>
+
+        <div>Serial: {product.serialNumber}</div>
+        <div>Warranty: {product.warranty}</div>
+
+        <div>Base Price: ₹{product.baseAmount?.toFixed(2)}</div>
+        <div>GST: ₹{product.tax?.toFixed(2)}</div>
+
+        {product.installationAvailable && (
+          <div className="col-span-2 mt-2 text-[#2CBC9C] font-semibold">
+            Installation: {product.installationStatus}
+            {product.installationScheduledDate && (
+              <> • {product.installationScheduledDate}</>
+            )}
+          </div>
+        )}
+
+      </div>
+
+    )}
+
+
+    {/* Product Feedback Toggle */}
+    <div className="mt-3">
+
+      <button
+        onClick={() => toggleItemFeedback(product.id)}
+        className="text-xs text-[#2CBC9C] font-medium"
+      >
+        {expandedItemFeedback.includes(product.id)
+          ? "Hide product feedback"
+          : "Rate this product"}
+      </button>
+
+    </div>
+
+
+    {/* Product Feedback Panel */}
+    {expandedItemFeedback.includes(product.id) && (
+
+      <div className="mt-3 bg-white border border-gray-200 rounded-xl p-3">
+
+        {/* Rating */}
+        <div className="flex justify-center gap-2 mb-3">
+
+          {[1,2,3,4,5].map((star) => (
+
+            <button
+              key={star}
+              onClick={() => setItemRating(product.id, star)}
+            >
+
+              <Star
+                className={`h-5 w-5 ${
+                  star <= (itemFeedback[product.id]?.rating || 0)
+                    ? "fill-[#2CBC9C] text-[#2CBC9C]"
+                    : "text-gray-300"
+                }`}
+              />
+
+            </button>
+
+          ))}
+
+        </div>
+
+
+        {/* Feedback Tags */}
+        <div className="flex flex-wrap gap-2 justify-center">
+
+          {["Build Quality","Performance","Design","Value for Money"].map((tag) => {
+
+            const active =
+              itemFeedback[product.id]?.tags?.includes(tag)
+
+            return (
+
+              <button
+                key={tag}
+                onClick={() => toggleItemTag(product.id, tag)}
+                className={`text-[11px] px-2 py-1 rounded-full border ${
+                  active
+                    ? "bg-[#2CBC9C] text-white border-[#2CBC9C]"
+                    : "border-gray-200"
+                }`}
+              >
+                {tag}
+              </button>
+
+            )
+
+          })}
+
+        </div>
+
+      </div>
+
+    )}
+
+  </div>
+
+))}
+```
+
+  </div>
+
+{/* Totals */}
+
+  <div className="mt-5 pt-4 border-t border-gray-200 space-y-2 text-sm">
+
+```
+<div className="flex justify-between">
+  <span className="text-gray-600">Subtotal</span>
+  <span>₹{currentReceipt.subtotal.toFixed(2)}</span>
+</div>
+
+<div className="flex justify-between">
+  <span className="text-gray-600">GST</span>
+  <span>₹{currentReceipt.tax.toFixed(2)}</span>
+</div>
+
+<div className="flex justify-between text-base font-semibold pt-2 border-t border-gray-200">
+  <span>Total Paid</span>
+  <span className="text-[#2CBC9C]">
+    ₹{currentReceipt.total.toFixed(2)}
+  </span>
+</div>
+```
+
+  </div>
+
+{/* Payment Method */}
+
+  <div className="mt-5">
+
+```
+<div className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-center justify-between">
+
+  <div className="flex items-center">
+
+    <div className="w-8 h-8 bg-[#2CBC9C] rounded-lg flex items-center justify-center mr-3">
+
+      <svg
+        className="w-4 h-4 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <rect x="1" y="4" width="22" height="16" rx="2"></rect>
+        <line x1="1" y1="10" x2="23" y2="10"></line>
+      </svg>
+
+    </div>
+
+    <div>
+      <div className="text-xs font-medium">
+        Card Payment
+      </div>
+
+      <div className="text-xs text-gray-500">
+        **** **** **** 4532
+      </div>
+    </div>
+
+  </div>
+
+  <div className="text-sm font-semibold text-[#2CBC9C]">
+    ₹{currentReceipt.total.toFixed(2)}
+  </div>
+
+</div>
+```
 
   </div>
 
