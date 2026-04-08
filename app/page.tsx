@@ -109,6 +109,10 @@ export default function Home() {
  const copyCoupon = (code: string) => {
   navigator.clipboard.writeText(code)
   setCouponToast(code)
+
+  setTimeout(() => {
+    setCouponToast(null)
+  }, 3000)
 }
 
   const toggleItemFeedback = (id) => {
