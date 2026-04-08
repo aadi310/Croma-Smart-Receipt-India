@@ -77,7 +77,7 @@ export default function Home() {
   const [showStoreLocation, setShowStoreLocation] = useState(false)
   const receiptContainerRef = useRef<HTMLDivElement>(null)
 const [selectedTags, setSelectedTags] = useState<string[]>([])
-const [couponToast, setCouponToast] = useState(false)
+const [couponToast, setCouponToast] = useState<string | null>(null)
   const [itemFeedback, setItemFeedback] = useState({})
 const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
   const [feedback, setFeedback] = useState({
@@ -99,14 +99,9 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
   const [rating, setRating] = useState(0)
   const [feedbackText, setFeedbackText] = useState("")
 
-  const copyCoupon = (code: string) => {
+ const copyCoupon = (code: string) => {
   navigator.clipboard.writeText(code)
-
-  setCouponToast(true)
-
-  setTimeout(() => {
-    setCouponToast(false)
-  }, 2000)
+  setCouponToast(code)
 }
 
   const toggleItemFeedback = (id) => {
@@ -1795,130 +1790,146 @@ loop: true,
 
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-{/* Header */}
-
+  {/* Header */}
   <div className="flex items-center mb-4">
 
+    <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+      <Sparkles className="h-4 w-4 text-white" />
+    </div>
 
-<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
-  <Sparkles className="h-4 w-4 text-white" />
-</div>
-
-<h3 className="text-base font-semibold text-gray-900">
-  Exclusive Offers For You
-</h3>
-
+    <h3 className="text-base font-semibold text-gray-900">
+      Exclusive Offers For You
+    </h3>
 
   </div>
 
-{/* Inline Toast */}
-{couponToast && ( <div className="mb-3 text-center text-xs text-green-700 bg-green-50 border border-green-100 rounded-lg py-2">
-✓ Offer saved </div>
-)}
+
+  {/* Inline Toast */}
+  {couponToast && (
+    <div className="mb-3 text-center text-xs text-green-700 bg-green-50 border border-green-100 rounded-lg py-2">
+      ✓ Coupon <span className="font-semibold">{couponToast}</span> copied
+    </div>
+  )}
+
 
   <div className="space-y-3">
 
 
-{/* Offer 1 */}
-<button
-  onClick={() => copyCoupon("AC_WARRANTY")}
-  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
->
+    {/* Offer 1 */}
+    <button
+      onClick={() => copyCoupon("AC_WARRANTY")}
+      className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+    >
 
-  <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between">
 
-    <div>
-      <h4 className="text-sm font-semibold text-gray-900">
-        Extend Your AC Warranty
-      </h4>
+        <div>
 
-      <p className="text-[11px] text-gray-500">
-        Get up to <span className="font-semibold text-[#2CBC9C]">20% off</span> on extended protection plans
-      </p>
-    </div>
+          <h4 className="text-sm font-semibold text-gray-900">
+            Extend Your AC Warranty
+          </h4>
 
-    <ShieldCheck className="h-5 w-5 text-[#2CBC9C]" />
+          <p className="text-[11px] text-gray-500">
+            Get up to <span className="font-semibold text-[#2CBC9C]">20% off</span> on extended protection plans
+          </p>
+
+          <p className="text-[11px] mt-1 text-gray-600">
+            Use code <span className="font-semibold text-[#2CBC9C]">AC_WARRANTY</span>
+          </p>
+
+        </div>
+
+        <ShieldCheck className="h-5 w-5 text-[#2CBC9C]" />
+
+      </div>
+
+    </button>
+
+
+    {/* Offer 2 */}
+    <button
+      onClick={() => copyCoupon("AC_STABILIZER")}
+      className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+    >
+
+      <div className="flex items-center justify-between">
+
+        <div>
+
+          <h4 className="text-sm font-semibold text-gray-900">
+            Special Price on AC Stabilizers
+          </h4>
+
+          <p className="text-[11px] text-gray-500">
+            Protect your AC with stabilizers starting at ₹1,499
+          </p>
+
+          <p className="text-[11px] mt-1 text-gray-600">
+            Use code <span className="font-semibold text-[#2CBC9C]">AC_STABILIZER</span>
+          </p>
+
+        </div>
+
+        <PlugZap className="h-5 w-5 text-[#2CBC9C]" />
+
+      </div>
+
+    </button>
+
+
+    {/* Offer 3 */}
+    <button
+      onClick={() => copyCoupon("AIRPODS_CASE")}
+      className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
+    >
+
+      <div className="flex items-center justify-between">
+
+        <div>
+
+          <h4 className="text-sm font-semibold text-gray-900">
+            Protect Your AirPods
+          </h4>
+
+          <p className="text-[11px] text-gray-500">
+            Premium protective cases starting from ₹799
+          </p>
+
+          <p className="text-[11px] mt-1 text-gray-600">
+            Use code <span className="font-semibold text-[#2CBC9C]">AIRPODS_CASE</span>
+          </p>
+
+        </div>
+
+        <Headphones className="h-5 w-5 text-[#2CBC9C]" />
+
+      </div>
+
+    </button>
 
   </div>
 
-</button>
 
+  {/* CTA */}
+  <a
+    href="https://www.croma.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
 
-{/* Offer 2 */}
-<button
-  onClick={() => copyCoupon("AC_STABILIZER")}
-  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
->
-
-  <div className="flex items-center justify-between">
-
-    <div>
-      <h4 className="text-sm font-semibold text-gray-900">
-        Special Price on AC Stabilizers
-      </h4>
-
-      <p className="text-[11px] text-gray-500">
-        Protect your AC with stabilizers starting at ₹1,499
-      </p>
-    </div>
-
-    <PlugZap className="h-5 w-5 text-[#2CBC9C]" />
-
-  </div>
-
-</button>
-
-
-{/* Offer 3 */}
-<button
-  onClick={() => copyCoupon("AIRPODS_CASE")}
-  className="w-full bg-[#F1FBF8] border border-[#D6F2EC] rounded-xl p-3 text-left active:scale-[0.99]"
->
-
-  <div className="flex items-center justify-between">
-
-    <div>
-      <h4 className="text-sm font-semibold text-gray-900">
-        Protect Your AirPods
-      </h4>
-
-      <p className="text-[11px] text-gray-500">
-        Premium protective cases starting from ₹799
-      </p>
-    </div>
-
-    <Headphones className="h-5 w-5 text-[#2CBC9C]" />
-
-  </div>
-
-</button>
-
-
-  </div>
-
-{/* CTA */}
-<a
-href="https://www.croma.com/"
-target="_blank"
-rel="noopener noreferrer"
-
->
-
-<button className="w-full mt-4 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]">
-
-
-  Explore More Offers
-</button>
-
+    <button className="w-full mt-4 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]">
+      Explore More Offers
+    </button>
 
   </a>
+
 
   <p className="mt-2 text-[9px] text-center text-gray-400">
     Offers based on your recent purchase. Availability may vary by location.
   </p>
 
 </div>
-
+          
          {/* Receipt Actions */}
 
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
