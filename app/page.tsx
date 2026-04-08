@@ -2197,6 +2197,182 @@ Submit Request
   </p>
 
 </div>
+
+        {/* Discover More Section */}
+
+<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+
+  {/* Header */}
+  <div className="flex items-center mb-4">
+
+    <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+      <Sparkles className="h-4 w-4 text-white" />
+    </div>
+
+    <h3 className="text-base font-semibold text-gray-900">
+      Discover More
+    </h3>
+
+  </div>
+
+
+  {/* Category Grid */}
+  <div className="grid grid-cols-2 gap-3">
+
+    {/* Smartphones */}
+    <a
+      href="https://www.croma.com/phones-wearables/mobile-phones/c/10"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Smartphones.png"
+        alt="Smartphones"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Smartphones
+      </div>
+
+    </a>
+
+
+    {/* Televisions */}
+    <a
+      href="https://www.croma.com/televisions-accessories/c/997"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Television.png"
+        alt="Televisions"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Televisions
+      </div>
+
+    </a>
+
+
+    {/* Kitchen Appliances */}
+    <a
+      href="https://www.croma.com/kitchen-appliances/c/864"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Kitchen.png"
+        alt="Kitchen Appliances"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Kitchen Appliances
+      </div>
+
+    </a>
+
+
+    {/* Home Appliances */}
+    <a
+      href="https://www.croma.com/home-appliances/c/5"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Home.png"
+        alt="Home Appliances"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Home Appliances
+      </div>
+
+    </a>
+
+
+    {/* Computers & Tablets */}
+    <a
+      href="https://www.croma.com/computers-tablets/c/3"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Computer.png"
+        alt="Computers"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Computers & Tablets
+      </div>
+
+    </a>
+
+
+    {/* Audio & Video */}
+    <a
+      href="https://www.croma.com/audio-video/c/292"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 active:scale-[0.98]"
+    >
+
+      <Image
+        src="/images/design-mode/Audio.png"
+        alt="Audio & Video"
+        width={120}
+        height={90}
+        className="mx-auto object-contain"
+      />
+
+      <div className="text-xs font-semibold text-gray-800 mt-2">
+        Audio & Video
+      </div>
+
+    </a>
+
+  </div>
+
+
+  {/* CTA */}
+  <a
+    href="https://www.croma.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+
+    <button className="w-full mt-4 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]">
+      Explore More on Croma
+    </button>
+
+  </a>
+
+</div>
           
          {/* Receipt Actions */}
 
