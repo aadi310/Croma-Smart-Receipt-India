@@ -1210,7 +1210,7 @@ Powered by RDEP
   </div>
 
   <span className="text-[10px] text-gray-600 mt-1">
-    Order Confirmed
+    Confirmed
   </span>
 
 </div>
