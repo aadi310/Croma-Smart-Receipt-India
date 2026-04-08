@@ -751,7 +751,7 @@ Powered by RDEP
     const url = URL.createObjectURL(blob)
     const link = document.createElement("a")
     link.href = url
-    link.download = "Dominos_Receipt_SK251107001.html"
+    link.download = "Croma_Receipt_SK251107001.html"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
