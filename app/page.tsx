@@ -806,13 +806,13 @@ Powered by RDEP
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
 
   {/* Header */}
-  <div className="bg-[#111111] px-5 pt-5 pb-6 text-white">
+  <div className="bg-[#2CBC9C] px-5 pt-5 pb-6 text-white">
 
     <div className="flex items-start justify-between">
 
       {/* Logo */}
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Croma_Logo.svg"
+        src="https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/CMS/Category%20icon/Final%20icon/Croma_Logo_acrkvn.svg"
         alt="Croma"
         className="h-10 w-auto"
       />
@@ -836,17 +836,17 @@ Powered by RDEP
         Thank you {customerName}
       </div>
 
-      <div className="text-sm text-gray-300">
-        Your purchase at Croma has been completed
+      <div className="text-sm text-white/90">
+        Your purchase at Croma is confirmed
       </div>
     </div>
 
 
-    {/* Amount Paid Card */}
-    <div className="mt-4 bg-[#00A651] rounded-xl p-4 flex justify-between items-center">
+    {/* Amount Paid */}
+    <div className="mt-4 bg-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
 
       <div>
-        <div className="text-xs opacity-80">
+        <div className="text-xs opacity-90">
           Total Amount Paid
         </div>
 
