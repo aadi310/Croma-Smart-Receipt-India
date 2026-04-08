@@ -783,7 +783,7 @@ Powered by RDEP
       >
         <div className="flex flex-col w-full gap-3 pb-4 px-3">
 
-          {/* Top Section */}
+         {/* Top Section */}
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
 
   {/* Header */}
@@ -824,21 +824,24 @@ Powered by RDEP
 
 
     {/* Amount Card */}
-<div className="mt-4 bg-gradient-to-r from-[#2CBC9C] to-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
+    <div className="mt-4 bg-gradient-to-r from-[#2CBC9C] to-[#46A9A3] rounded-xl p-4 flex justify-between items-center">
 
-  <div>
-    <div className="text-xs text-white/90">
-      Total Amount Paid
+      <div>
+        <div className="text-xs text-white/90">
+          Total Amount Paid
+        </div>
+
+        <div className="text-3xl font-semibold text-white">
+          ₹{currentReceipt.total.toLocaleString("en-IN")}
+        </div>
+      </div>
+
+      <ShoppingBagIcon className="h-7 w-7 text-white/90" />
+
     </div>
 
-    <div className="text-3xl font-semibold text-white">
-      ₹{currentReceipt.total.toLocaleString("en-IN")}
-    </div>
-  </div>
+  </div>  {/* ✅ THIS WAS MISSING */}
 
-  <ShoppingBagIcon className="h-7 w-7 text-white/90" />
-
-</div>
 
   {/* Receipt Metadata */}
   <div className="p-4 bg-white">
