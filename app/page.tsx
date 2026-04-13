@@ -31,6 +31,7 @@ import {
   Truck, Package, CheckCircle2, RotateCcw, Repeat, AlertCircle,
   MapPin,
   ShoppingBagIcon,
+  Smartphone,
   Receipt as ReceiptIcon,
 } from "lucide-react"
 
@@ -120,6 +121,24 @@ export default function Home() {
   setExpandedItemFeedback((prev) =>
     prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
   )
+}
+
+  const openTataNeu = () => {
+  const userAgent = navigator.userAgent || navigator.vendor
+
+  if (/android/i.test(userAgent)) {
+    window.open(
+      "https://play.google.com/store/apps/details?id=com.tatadigital.tataneu",
+      "_blank"
+    )
+  } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.open(
+      "https://apps.apple.com/in/app/tata-neu/id1596382484",
+      "_blank"
+    )
+  } else {
+    window.open("https://www.tataneu.com/", "_blank")
+  }
 }
 
   const setItemRating = (itemId, rating) => {
@@ -2411,6 +2430,50 @@ Submit Request
     </button>
 
   </a>
+
+</div>
+          {/* Tata Neu App Section */}
+
+<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+
+<div className="flex items-center mb-3">
+
+<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+<Smartphone className="h-4 w-4 text-white" />
+</div>
+
+<div>
+<div className="text-sm font-semibold text-gray-900">
+Get More with Tata Neu
+</div>
+
+<div className="text-xs text-gray-500">
+Earn rewards and manage all your Tata purchases
+</div>
+</div>
+
+</div>
+
+
+{/* Benefits */}
+
+<div className="bg-[#F1FBF8] rounded-xl border border-[#D6F2EC] p-3 text-xs text-gray-700 space-y-1">
+
+<div>• Earn NeuCoins on every purchase</div>
+<div>• Track your orders and invoices</div>
+<div>• Access exclusive Tata offers</div>
+
+</div>
+
+
+{/* CTA */}
+
+<button
+onClick={openTataNeu}
+className="w-full mt-3 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]"
+>
+Install Tata Neu App
+</button>
 
 </div>
           
