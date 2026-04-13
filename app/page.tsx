@@ -2436,44 +2436,49 @@ Submit Request
 
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
-<div className="flex items-center mb-3">
+  <div className="flex items-center mb-3">
 
-<div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
-<Smartphone className="h-4 w-4 text-white" />
-</div>
+    <div className="bg-[#2CBC9C] p-2 rounded-lg mr-3">
+      <Smartphone className="h-4 w-4 text-white" />
+    </div>
 
-<div>
-<div className="text-sm font-semibold text-gray-900">
-Get More with Tata Neu
-</div>
+    <div>
+      <div className="text-sm font-semibold text-gray-900">
+        Get More with Tata Neu
+      </div>
 
-<div className="text-xs text-gray-500">
-Earn rewards and manage all your Tata purchases
-</div>
-</div>
+      <div className="text-xs text-gray-500">
+        Earn rewards and manage all your Tata purchases
+      </div>
+    </div>
 
-</div>
-
-
-{/* Benefits */}
-
-<div className="bg-[#F1FBF8] rounded-xl border border-[#D6F2EC] p-3 text-xs text-gray-700 space-y-1">
-
-<div>• Earn NeuCoins on every purchase</div>
-<div>• Track your orders and invoices</div>
-<div>• Access exclusive Tata offers</div>
-
-</div>
+  </div>
 
 
-{/* CTA */}
+  {/* Benefits Card */}
 
-<button
-onClick={openTataNeu}
-className="w-full mt-3 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]"
->
-Install Tata Neu App
-</button>
+  <div className="bg-[#F1FBF8] rounded-xl border border-[#D6F2EC] p-3 text-xs text-gray-700 space-y-2">
+
+    {/* Reward Highlight */}
+    <div className="bg-white border border-[#D6F2EC] rounded-lg px-3 py-2 text-center font-semibold text-[#2CBC9C]">
+      Earn <span className="text-gray-900">100 NeuCoins</span> on your first login
+    </div>
+
+    <div>• Earn NeuCoins on every purchase</div>
+    <div>• Track your orders and digital receipts</div>
+    <div>• Access exclusive Tata member offers</div>
+
+  </div>
+
+
+  {/* CTA */}
+
+  <button
+    onClick={openTataNeu}
+    className="w-full mt-3 bg-[#2CBC9C] text-white h-10 text-xs font-semibold rounded-xl active:scale-[0.98]"
+  >
+    Install Tata Neu App
+  </button>
 
 </div>
           
